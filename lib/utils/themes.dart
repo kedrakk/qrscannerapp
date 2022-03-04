@@ -21,17 +21,17 @@ class MyTheme {
     fontSize: 15,
   );
 
-  static final List<ThemeData> allThemes = [
-    lightBlueTheme,
-    darkBlueTheme,
-    royalBlueTheme,
-    lightPurpleTheme,
-    darkPurpleTheme,
-    orangeTheme,
-    green1Theme,
-    green2Theme,
-    green3Theme,
-    blackTheme,
+  static final List<Map<String, ThemeData>> allThemes = [
+    {"lightBlue": lightBlueTheme},
+    {"darkBlue": darkBlueTheme},
+    {"royalBlue": royalBlueTheme},
+    {"lightPurple": lightPurpleTheme},
+    {"darkPurple": darkPurpleTheme},
+    {"orange": orangeTheme},
+    {"green1": green1Theme},
+    {"green2": green2Theme},
+    {"green3": green3Theme},
+    {"black": blackTheme},
   ];
 
   static final ThemeData lightBlueTheme = ThemeData(

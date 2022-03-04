@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qr_scanner_app/utils/themes.dart';
+import 'package:get/get.dart';
+import 'package:qr_scanner_app/service/theme_service.dart';
 import '../home.dart';
 
 class MyApp extends StatelessWidget {
@@ -7,9 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: MyTheme.lightBlueTheme,
+    return GetMaterialApp(
+      title: 'QR Scanner',
+      theme: ThemeService().getTheme(),
+      debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
   }

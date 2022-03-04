@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:qr_scanner_app/service/theme_service.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/utils/themes.dart';
 
@@ -38,10 +40,14 @@ void showThemeBottomSheet(BuildContext context) {
               mainAxisSpacing: 2,
             ),
             itemBuilder: (context, index) => IconButton(
-              onPressed: () {},
+              onPressed: () {
+                ThemeService().setTheme(MyTheme.allThemes[index].values.first,
+                    MyTheme.allThemes[index].keys.first);
+                Get.back();
+              },
               icon: CircleAvatar(
-                backgroundColor:
-                    MyTheme.allThemes[index].scaffoldBackgroundColor,
+                backgroundColor: MyTheme
+                    .allThemes[index].values.first.scaffoldBackgroundColor,
               ),
             ),
             itemCount: MyTheme.allThemes.length,

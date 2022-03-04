@@ -55,7 +55,7 @@ void showThemeBottomSheet(BuildContext context) {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () => Get.back(),
               child: const Text("CLOSE"),
             ),
           ),

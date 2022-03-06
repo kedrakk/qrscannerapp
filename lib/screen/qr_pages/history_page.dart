@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/screen/qr_pages/history_generate_result.dart';
+import 'package:qr_scanner_app/screen/qr_pages/history_scan_result.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
 class QRHistoryPage extends StatelessWidget {
@@ -31,8 +33,8 @@ class QRHistoryPage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
+            QrScanResultPage(),
+            QRGenerateResultPage(),
           ],
         ),
       ),

@@ -5,8 +5,19 @@ class QRActionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("MY QR"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.photo,
+            ),
+          ),
+        ],
+      ),
+      body: const Center(
         child: Text("QR Read And Generate"),
       ),
     );

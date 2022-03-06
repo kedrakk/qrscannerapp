@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/service/bottom_bar_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
-import 'package:qr_scanner_app/widgets/bottomsheets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,17 +12,6 @@ class HomePage extends StatelessWidget {
         init: BottomBarController(),
         builder: (controller) {
           return Scaffold(
-            appBar: AppBar(
-              title: const Text("Home Page"),
-              actions: [
-                IconButton(
-                  onPressed: () => showThemeBottomSheet(context),
-                  icon: const Icon(
-                    Icons.ac_unit,
-                  ),
-                ),
-              ],
-            ),
             body: controller.pages[controller.pageIndex],
             bottomNavigationBar: Container(
               height: MediaQuery.of(context).size.height * .07,

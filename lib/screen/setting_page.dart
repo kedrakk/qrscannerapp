@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
-
+import 'package:get/get.dart';
 import '../widgets/bottomsheets.dart';
 
 class SettingPage extends StatelessWidget {
@@ -10,35 +11,36 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SETTING"),
+        title: Text(LocaleKeys.setting.tr),
       ),
       body: ListView(
         padding: const EdgeInsets.all(7),
         children: [
-          const ListTile(
+          ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
-            leading: Icon(Icons.language),
-            title: Text("Change Language"),
+            leading: const Icon(Icons.language),
+            title: Text(LocaleKeys.changelanugage.tr),
+            onTap: () => showLanguageBottomSheet(context),
           ),
           ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
             leading: const Icon(Icons.theater_comedy),
-            title: const Text("Change Theme"),
+            title: Text(LocaleKeys.changetheme.tr),
             onTap: () => showThemeBottomSheet(context),
           ),
-          const ListTile(
+          ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
-            leading: Icon(Icons.share),
-            title: Text("Share App To Your Friends"),
+            leading: const Icon(Icons.share),
+            title: Text(LocaleKeys.shareapp.tr),
           ),
-          const ListTile(
+          ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
-            leading: Icon(Icons.rate_review),
-            title: Text("Rate App"),
+            leading: const Icon(Icons.rate_review),
+            title: Text(LocaleKeys.shareapp.tr),
           ),
         ],
       ),

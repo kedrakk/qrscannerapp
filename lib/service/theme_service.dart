@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:qr_scanner_app/utils/themes.dart';
@@ -21,5 +22,9 @@ class ThemeService {
   void setTheme(ThemeData _newThemeData, String key) {
     _getStorage.write('theme', key);
     Get.changeTheme(_newThemeData);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: _newThemeData.scaffoldBackgroundColor,
+      statusBarBrightness: Brightness.dark,
+    ));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/service/language_service.dart';
@@ -10,6 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: ThemeService().getTheme().scaffoldBackgroundColor,
+      statusBarBrightness: Brightness.dark,
+    ));
     return GetMaterialApp(
       title: 'QR Scanner',
       theme: ThemeService().getTheme(),

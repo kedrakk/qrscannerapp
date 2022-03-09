@@ -33,8 +33,12 @@ class QRHistoryPage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            QrScanResultPage(),
-            QRGenerateResultPage(),
+            QrScanResultPage(
+              type: "QR Scan Result",
+            ),
+            QRGenerateResultPage(
+              type: "QR Generate Result",
+            ),
           ],
         ),
       ),

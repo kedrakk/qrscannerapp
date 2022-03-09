@@ -5,6 +5,7 @@ import 'package:qr_scanner_app/service/theme_service.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/utils/languages.dart';
 import 'package:qr_scanner_app/utils/themes.dart';
+import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
 
 void showThemeBottomSheet(BuildContext context) {
   showModalBottomSheet(
@@ -108,6 +109,56 @@ void showLanguageBottomSheet(BuildContext context) {
                   });
             },
             itemCount: allLanguages.length,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: TextButton(
+              onPressed: () => Get.back(),
+              child: const Text("CLOSE"),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+void showResultDetailBottomSheet(
+    BuildContext context, String type, String title, String scanTime) {
+  showModalBottomSheet(
+    backgroundColor: Colors.transparent,
+    context: context,
+    builder: (context) => Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        color: MyColor.white,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15.0),
+            child: Text(
+              type,
+              style: MyTheme.textStyle.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(7),
+            child: ListTile(
+              leading: type.toLowerCase().contains('scan')
+                  ? const ScanResultIcon()
+                  : const GenerateResultIcon(),
+              title: Text(title),
+              subtitle: Text(scanTime),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),

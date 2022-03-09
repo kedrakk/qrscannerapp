@@ -36,6 +36,12 @@ dependencies:
   get: ^4.6.1
   get_storage: ^2.0.3
 
+  #show qr image
+  qr_flutter: ^4.0.0
+
+  #scan
+  barcode_scan2: ^4.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -39,17 +39,25 @@ class GenerateQRPage extends StatelessWidget {
                           showCursor: true,
                           cursorColor: MyColor.white,
                           style: const TextStyle(color: MyColor.white),
-                          decoration: const InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
+                          decoration: InputDecoration(
+                            enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: MyColor.white,
                               ),
                             ),
-                            focusedBorder: UnderlineInputBorder(
+                            focusedBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: MyColor.white,
                               ),
                             ),
+                            suffixIcon: IconButton(
+                              onPressed: () => controller.clearKeywords(),
+                              icon: Icon(
+                                Icons.close,
+                                color: controller.suffixIconColor,
+                              ),
+                            ),
+                            suffixIconColor: controller.suffixIconColor,
                           ),
                           maxLines: 4,
                           minLines: 2,
@@ -69,23 +77,12 @@ class GenerateQRPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                controller.qrTextController.text.isEmpty
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 1 / 10,
+                ),
+                controller.qrTextController.text.isNotEmpty &&
+                        controller.qrResult.isNotEmpty
                     ? Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 10,
-                        ),
-                        width: MediaQuery.of(context).size.width * 1.7 / 2,
-                        height: MediaQuery.of(context).size.width * 1.7 / 2,
-                        decoration: const BoxDecoration(
-                          color: MyColor.grey,
-                        ),
-                        child: const Center(
-                          child: Text(
-                              "Please enter the text you want to generate QR"),
-                        ),
-                      )
-                    : Container(
                         margin: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 10,
@@ -107,8 +104,27 @@ class GenerateQRPage extends StatelessWidget {
                             );
                           },
                         ),
+                      )
+                    : Container(
+                        margin: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 10,
+                        ),
+                        width: MediaQuery.of(context).size.width * 1.7 / 2,
+                        height: MediaQuery.of(context).size.width * 1.7 / 2,
+                        decoration: const BoxDecoration(
+                          color: MyColor.grey,
+                        ),
+                        child: const Center(
+                          child: Text(
+                              "Please enter the text you want to generate QR"),
+                        ),
                       ),
-                controller.qrTextController.text.isNotEmpty
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 1 / 10,
+                ),
+                controller.qrTextController.text.isNotEmpty &&
+                        controller.qrResult.isNotEmpty
                     ? Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 15),

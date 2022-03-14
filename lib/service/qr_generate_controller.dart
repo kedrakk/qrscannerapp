@@ -38,6 +38,7 @@ class QRGenerator extends GetxController {
   void clearKeywords() {
     if (_textEditingController.text.isNotEmpty) {
       _textEditingController.clear();
+      _suffixIconColor = Get.theme.scaffoldBackgroundColor;
       update();
     }
   }

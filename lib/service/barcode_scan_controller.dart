@@ -1,18 +1,20 @@
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
+import 'package:scan/scan.dart';
 
 class BarcodeScanController extends GetxController {
-  ScanResult _scanResult = ScanResult();
-  ScanResult get scanResult => _scanResult;
+  final ScanController _controller = ScanController();
+  ScanController get scanController => _controller;
 
-  @override
-  void onInit() {
-    scanQR();
-    super.onInit();
+  String _qrcode = '';
+  String get qrCode => _qrcode;
+
+  scanQR(String res) {
+    _qrcode = res;
+    update();
   }
 
-  scanQR() async {
-    _scanResult = await BarcodeScanner.scan();
+  refreshNew() {
+    _qrcode = '';
     update();
   }
 }

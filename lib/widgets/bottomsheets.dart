@@ -51,6 +51,14 @@ void showThemeBottomSheet(BuildContext context) {
               icon: CircleAvatar(
                 backgroundColor: MyTheme
                     .allThemes[index].values.first.scaffoldBackgroundColor,
+                child: Icon(
+                  Icons.check,
+                  color: Get.theme.scaffoldBackgroundColor ==
+                          MyTheme.allThemes[index].values.first
+                              .scaffoldBackgroundColor
+                      ? MyColor.white
+                      : Colors.transparent,
+                ),
               ),
             ),
             itemCount: MyTheme.allThemes.length,

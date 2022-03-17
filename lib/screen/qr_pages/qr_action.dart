@@ -10,81 +10,79 @@ class QRActionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("MY QR"),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.photo,
-            ),
-          ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            GetBuilder<BarcodeScanController>(
-              init: BarcodeScanController(),
-              builder: (controller) {
-                return controller.qrCode.isEmpty
-                    ? Container(
-                        width: MediaQuery.of(context).size.width * 2 / 3,
-                        height: MediaQuery.of(context).size.height * 1 / 3,
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 10),
-                        child: ScanView(
-                          controller: controller.scanController,
-                          scanAreaScale: .9,
-                          scanLineColor: Get.theme.scaffoldBackgroundColor,
-                          onCapture: (data) => controller.scanQR(data),
-                        ),
-                      )
-                    : Center(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                controller.qrCode,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                            TextButton.icon(
-                              style: ButtonStyle(
-                                foregroundColor: MaterialStateProperty.all(
-                                  MyColor.white,
-                                ),
-                              ),
-                              onPressed: () => controller.refreshNew(),
-                              icon: const Icon(Icons.qr_code),
-                              label: const Text(
-                                "Scan New",
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-              },
-            ),
-            TextButton.icon(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all(
-                  MyColor.white,
-                ),
-              ),
-              onPressed: () => Get.to(() => const GenerateQRPage()),
-              icon: const Icon(Icons.qr_code),
-              label: const Text(
-                "Generate QR",
+    return GetBuilder<BarcodeScanController>(
+      init: BarcodeScanController(),
+      builder: (controller) => Scaffold(
+        appBar: AppBar(
+          title: const Text("MY QR"),
+          actions: [
+            IconButton(
+              onPressed: () => controller.pickQRImage(),
+              icon: const Icon(
+                Icons.photo,
               ),
             ),
           ],
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              controller.qrCode.isEmpty
+                  ? Container(
+                      width: MediaQuery.of(context).size.width * 2 / 3,
+                      height: MediaQuery.of(context).size.height * 1 / 3,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 10),
+                      child: ScanView(
+                        controller: controller.scanController,
+                        scanAreaScale: .9,
+                        scanLineColor: Get.theme.scaffoldBackgroundColor,
+                        onCapture: (data) => controller.scanQR(data),
+                      ),
+                    )
+                  : Center(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              controller.qrCode,
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          TextButton.icon(
+                            style: ButtonStyle(
+                              foregroundColor: MaterialStateProperty.all(
+                                MyColor.white,
+                              ),
+                            ),
+                            onPressed: () => controller.refreshNew(),
+                            icon: const Icon(Icons.qr_code),
+                            label: const Text(
+                              "Scan New",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+              TextButton.icon(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(
+                    MyColor.white,
+                  ),
+                ),
+                onPressed: () => Get.to(() => const GenerateQRPage()),
+                icon: const Icon(Icons.qr_code),
+                label: const Text(
+                  "Generate QR",
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

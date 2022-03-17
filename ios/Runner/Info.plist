@@ -24,14 +24,16 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<dict>
-    <key>NSCameraUsageDescription</key>
-    <string>Camera permission is required for barcode scanning.</string>
-	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Your Description</string>
 	<key>io.flutter.embedded_views_preview</key>
 	<string>YES</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Your Description</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your Description</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your Description</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

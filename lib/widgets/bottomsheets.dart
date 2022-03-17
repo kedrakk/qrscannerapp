@@ -100,13 +100,21 @@ void showLanguageBottomSheet(BuildContext context) {
             physics: const ScrollPhysics(),
             itemBuilder: (context, index) {
               return ListTile(
-                  leading: allLanguages[index].languageIcon,
-                  title: Text(allLanguages[index].languageName),
-                  onTap: () {
-                    LanguageService().setLocale(allLanguages[index].localeKey,
-                        allLanguages[index].locale);
-                    Get.back();
-                  });
+                leading: allLanguages[index].languageIcon,
+                title: Text(allLanguages[index].languageName),
+                onTap: () {
+                  LanguageService().setLocale(allLanguages[index].localeKey,
+                      allLanguages[index].locale);
+                  Get.back();
+                },
+                trailing: Icon(
+                  Icons.check,
+                  color:
+                      Get.locale!.languageCode == allLanguages[index].localeKey
+                          ? Get.theme.scaffoldBackgroundColor
+                          : Colors.transparent,
+                ),
+              );
             },
             itemCount: allLanguages.length,
           ),

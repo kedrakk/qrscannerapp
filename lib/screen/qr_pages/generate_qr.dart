@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_scanner_app/service/qr_generate_controller.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../../utils/colors.dart';
 
@@ -92,17 +93,21 @@ class GenerateQRPage extends StatelessWidget {
                         decoration: const BoxDecoration(
                           color: MyColor.white,
                         ),
-                        child: QrImage(
-                          data: controller.qrResult,
-                          version: QrVersions.auto,
-                          errorStateBuilder: (cxt, err) {
-                            return const Center(
-                              child: Text(
-                                "Uh oh! Something went wrong...",
-                                textAlign: TextAlign.center,
-                              ),
-                            );
-                          },
+                        child: Screenshot(
+                          controller: controller.screenshotController,
+                          child: QrImage(
+                            backgroundColor: Get.theme.scaffoldBackgroundColor,
+                            data: controller.qrResult,
+                            version: QrVersions.auto,
+                            errorStateBuilder: (cxt, err) {
+                              return const Center(
+                                child: Text(
+                                  "Uh oh! Something went wrong...",
+                                  textAlign: TextAlign.center,
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       )
                     : Container(
@@ -139,7 +144,7 @@ class GenerateQRPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () => controller.shareImage(),
                               icon: const Icon(Icons.share),
                               label: const Text("SHARE NOW"),
                             ),
@@ -157,7 +162,7 @@ class GenerateQRPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () => controller.saveImage(),
                               icon: const Icon(Icons.check),
                               label: const Text("SAVE NOW"),
                             ),

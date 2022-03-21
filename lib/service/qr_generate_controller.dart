@@ -91,6 +91,9 @@ class QRGenerator extends GetxController {
   _storeData(String value) {
     final _timeStamp = DateTime.now().millisecondsSinceEpoch.toString();
     var _box = Hive.box('generatebox');
+    if (_box.length > 9) {
+      _box.deleteAt(0);
+    }
     _box.put(_timeStamp, value);
   }
 }

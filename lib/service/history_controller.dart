@@ -3,8 +3,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
 
 class HistoryController extends GetxController {
-  final List<HistoryResult> _scanResultList = [];
-  final List<HistoryResult> _generateResult = [];
+  List<HistoryResult> _scanResultList = [];
+  List<HistoryResult> _generateResult = [];
   List<HistoryResult> get scanResult => _scanResultList;
   List<HistoryResult> get generateResult => _generateResult;
 
@@ -24,6 +24,7 @@ class HistoryController extends GetxController {
         resultName: _box.get(item),
       ));
     }
+    _scanResultList = _scanResultList.reversed.toList();
     update();
   }
 
@@ -36,6 +37,7 @@ class HistoryController extends GetxController {
         resultName: _box.get(item),
       ));
     }
+    _generateResult = _generateResult.reversed.toList();
     update();
   }
 }

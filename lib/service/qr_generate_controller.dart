@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
@@ -33,6 +34,7 @@ class QRGenerator extends GetxController {
 
   void generateQR() {
     _qrResult = _textEditingController.text;
+    _storeData(_qrResult);
     update();
   }
 
@@ -84,5 +86,11 @@ class QRGenerator extends GetxController {
     if (_captureFile != null) {
       await Share.shareFiles([_captureFile.path]);
     }
+  }
+
+  _storeData(String value) {
+    final _timeStamp = DateTime.now().millisecondsSinceEpoch.toString();
+    var _box = Hive.box('generatebox');
+    _box.put(_timeStamp, value);
   }
 }

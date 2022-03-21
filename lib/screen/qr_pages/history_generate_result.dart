@@ -32,6 +32,7 @@ class QRGenerateResultPage extends StatelessWidget {
                 leading: const GenerateResultIcon(),
                 title: Text(
                   generateResultList[index].resultName,
+                  maxLines: 2,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

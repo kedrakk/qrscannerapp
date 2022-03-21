@@ -31,6 +31,7 @@ class QrScanResultPage extends StatelessWidget {
                 leading: const ScanResultIcon(),
                 title: Text(
                   scanResultList[index].resultName,
+                  maxLines: 2,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

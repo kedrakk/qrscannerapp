@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
 
@@ -36,7 +37,13 @@ class QRGenerateResultPage extends StatelessWidget {
                   ),
                 ),
                 subtitle: Text(
-                  generateResultList[index].timestamp,
+                  DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                    DateTime.fromMillisecondsSinceEpoch(
+                      int.parse(
+                        generateResultList[index].timestamp,
+                      ),
+                    ),
+                  ),
                 ),
               ),
               itemCount: generateResultList.length,

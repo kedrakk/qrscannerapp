@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/widgets/bottomsheets.dart';
@@ -34,7 +35,15 @@ class QrScanResultPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(scanResultList[index].timestamp),
+                subtitle: Text(
+                  DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                    DateTime.fromMillisecondsSinceEpoch(
+                      int.parse(
+                        scanResultList[index].timestamp,
+                      ),
+                    ),
+                  ),
+                ),
               ),
               itemCount: scanResultList.length,
             )

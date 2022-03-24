@@ -44,8 +44,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.myapp.qr_scanner_app"
-        //minSdkVersion localProperties.getProperty('flutter.minSdkVersion').toInteger()
-        minSdkVersion 29
+        minSdkVersion localProperties.getProperty('flutter.minSdkVersion').toInteger()
         targetSdkVersion flutter.targetSdkVersion
         // minSdkVersion 29
         // targetSdkVersion 30

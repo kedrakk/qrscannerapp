@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/service/qr_generate_controller.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
 import 'package:screenshot/screenshot.dart';
@@ -100,9 +101,9 @@ class GenerateQRPage extends StatelessWidget {
                             data: controller.qrResult,
                             version: QrVersions.auto,
                             errorStateBuilder: (cxt, err) {
-                              return const Center(
+                              return Center(
                                 child: Text(
-                                  "Uh oh! Something went wrong...",
+                                  LocaleKeys.somethingwentwrong.tr,
                                   textAlign: TextAlign.center,
                                 ),
                               );
@@ -120,9 +121,10 @@ class GenerateQRPage extends StatelessWidget {
                         decoration: const BoxDecoration(
                           color: MyColor.grey,
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
-                              "Please enter the text you want to generate QR"),
+                            LocaleKeys.pleaseenterthetext.tr,
+                          ),
                         ),
                       ),
                 SizedBox(
@@ -146,7 +148,7 @@ class GenerateQRPage extends StatelessWidget {
                               ),
                               onPressed: () => controller.shareImage(),
                               icon: const Icon(Icons.share),
-                              label: const Text("SHARE NOW"),
+                              label: Text(LocaleKeys.sharenow.tr),
                             ),
                             ElevatedButton.icon(
                               style: ButtonStyle(
@@ -164,7 +166,7 @@ class GenerateQRPage extends StatelessWidget {
                               ),
                               onPressed: () => controller.saveImage(),
                               icon: const Icon(Icons.check),
-                              label: const Text("SAVE NOW"),
+                              label: Text(LocaleKeys.savenow.tr),
                             ),
                           ],
                         ),

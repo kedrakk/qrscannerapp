@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
 void showEmptyTextDialog() {
@@ -23,7 +24,7 @@ void showEmptyTextDialog() {
 void showInvalidQRDialog() {
   Get.defaultDialog(
     title: "OOPS...",
-    middleText: "Please select the valid QR or Barcode Image Format",
+    middleText: LocaleKeys.pleaseselectvalidqr.tr,
     confirm: ElevatedButton.icon(
       onPressed: () => Get.back(),
       icon: const Icon(Icons.check),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/widgets/bottomsheets.dart';
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
+import 'package:get/get.dart';
 
 class QrScanResultPage extends StatelessWidget {
   const QrScanResultPage({
@@ -48,8 +50,8 @@ class QrScanResultPage extends StatelessWidget {
               ),
               itemCount: scanResultList.length,
             )
-          : const Center(
-              child: Text("Empty Scan History"),
+          : Center(
+              child: Text(LocaleKeys.emptyscanresult.tr),
             ),
     );
   }

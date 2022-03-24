@@ -3,5 +3,20 @@
     "changelanugage":"Change Language",
     "changetheme":"Change Theme",
     "shareapp":"Share App To Your Friends",
-    "rateapp":"Rate App"
+    "rateapp":"Rate App",
+    "myqr":"MY QR",
+    "generateqr":"Generate QR",
+    "scannew":"Scan New",
+    "pleaseselectvalidqr":"Please select the valid QR or Barcode Image Format",
+    "somethingwentwrong":"Uh oh! Something went wrong...",
+    "pleaseenterthetext":"Please enter the text you want to generate QR",
+    "sharenow":"SHARE NOW",
+    "savenow":"SAVE NOW",
+    "success":"Success",
+    "imagesavesuccess":"Image Saved Success",
+    "qrscanresult":"QR Scan Results",
+    "qrgenerateersult":"QR Generate Results",
+    "emptyscanresult":"Empty Scan History",
+    "emptygenerateresult":"Empty Generate History",
+    "close":"CLOSE"
 }

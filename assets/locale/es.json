@@ -3,5 +3,20 @@
     "changelanugage":"Cambiar idioma",
     "changetheme":"Cambiar de tema",
     "shareapp":"Comparte la aplicación con tus amigos",
-    "rateapp":"Calificar aplicacion"
+    "rateapp":"Calificar aplicacion",
+    "myqr":"MI QR",
+    "generateqr":"Generar código QR",
+    "scannew":"Escanear nueva",
+    "pleaseselectvalidqr":"Seleccione el formato de imagen de código de barras o QR válido",
+    "somethingwentwrong":"¡UH oh! Algo salió mal...",
+    "pleaseenterthetext":"Por favor ingrese el texto que desea generar QR",
+    "sharenow":"COMPARTE AHORA",
+    "savenow":"GUARDAR AHORA",
+    "success":"Éxito",
+    "imagesavesuccess":"Imagen guardada con éxito",
+    "qrscanresult":"Resultados de escaneo QR",
+    "qrgenerateersult":"QR Generar Resultados",
+    "emptyscanresult":"Historial de escaneo vacío",
+    "emptygenerateresult":"Vacío Generar historial",
+    "close":"CERRAR"
 }

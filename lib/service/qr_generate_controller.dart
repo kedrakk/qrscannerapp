@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/widgets/snackbars.dart';
 import 'package:screenshot/screenshot.dart';
@@ -76,7 +77,7 @@ class QRGenerator extends GetxController {
     if (_captureFile != null) {
       var result = await ImageGallerySaver.saveFile(_captureFile.path);
       if (result != null) {
-        showGetSnackBar("Success", "Image Saved Success");
+        showGetSnackBar(LocaleKeys.success.tr, LocaleKeys.imagesavesuccess.tr);
       }
     }
   }

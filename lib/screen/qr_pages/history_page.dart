@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/screen/qr_pages/history_generate_result.dart';
 import 'package:qr_scanner_app/screen/qr_pages/history_scan_result.dart';
 import 'package:qr_scanner_app/service/history_controller.dart';
@@ -24,12 +25,12 @@ class QRHistoryPage extends StatelessWidget {
             title: TabBar(
               labelColor: MyColor.black,
               indicatorColor: Get.theme.scaffoldBackgroundColor,
-              tabs: const [
+              tabs: [
                 Tab(
-                  text: "QR Scan Result",
+                  text: LocaleKeys.qrscanresult.tr,
                 ),
                 Tab(
-                  text: "QR Generate Result",
+                  text: LocaleKeys.qrgenerateersult.tr,
                 ),
               ],
             ),
@@ -37,11 +38,11 @@ class QRHistoryPage extends StatelessWidget {
           body: TabBarView(
             children: [
               QrScanResultPage(
-                type: "QR Scan Result",
+                type: LocaleKeys.qrscanresult.tr,
                 scanResultList: controller.scanResult,
               ),
               QRGenerateResultPage(
-                type: "QR Generate Result",
+                type: LocaleKeys.qrgenerateersult.tr,
                 generateResultList: controller.generateResult,
               ),
             ],

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
-
+import 'package:get/get.dart';
 import '../../utils/colors.dart';
 import '../../widgets/bottomsheets.dart';
 
@@ -49,8 +50,8 @@ class QRGenerateResultPage extends StatelessWidget {
               ),
               itemCount: generateResultList.length,
             )
-          : const Center(
-              child: Text("Empty Generate History"),
+          : Center(
+              child: Text(LocaleKeys.emptygenerateresult.tr),
             ),
     );
   }

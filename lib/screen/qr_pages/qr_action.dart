@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
 import 'package:qr_scanner_app/service/barcode_scan_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
@@ -14,7 +15,7 @@ class QRActionPage extends StatelessWidget {
       init: BarcodeScanController(),
       builder: (controller) => Scaffold(
         appBar: AppBar(
-          title: const Text("MY QR"),
+          title: Text(LocaleKeys.myqr.tr),
           actions: [
             IconButton(
               onPressed: () => controller.pickQRImage(),
@@ -62,8 +63,8 @@ class QRActionPage extends StatelessWidget {
                             ),
                             onPressed: () => controller.refreshNew(),
                             icon: const Icon(Icons.qr_code),
-                            label: const Text(
-                              "Scan New",
+                            label: Text(
+                              LocaleKeys.scannew.tr,
                             ),
                           ),
                         ],
@@ -77,8 +78,8 @@ class QRActionPage extends StatelessWidget {
                 ),
                 onPressed: () => Get.to(() => const GenerateQRPage()),
                 icon: const Icon(Icons.qr_code),
-                label: const Text(
-                  "Generate QR",
+                label: Text(
+                  LocaleKeys.generateqr.tr,
                 ),
               ),
             ],
@@ -106,8 +107,8 @@ class ScanNewButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       icon: const Icon(Icons.qr_code),
-      label: const Text(
-        "Scan New",
+      label: Text(
+        LocaleKeys.scannew.tr,
       ),
     );
   }

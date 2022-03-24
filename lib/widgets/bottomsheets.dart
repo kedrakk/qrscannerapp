@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/service/language_service.dart';
 import 'package:qr_scanner_app/service/theme_service.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
@@ -68,7 +69,7 @@ void showThemeBottomSheet(BuildContext context) {
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: TextButton(
               onPressed: () => Get.back(),
-              child: const Text("CLOSE"),
+              child: Text(LocaleKeys.close.tr),
             ),
           ),
         ],
@@ -131,7 +132,7 @@ void showLanguageBottomSheet(BuildContext context) {
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: TextButton(
               onPressed: () => Get.back(),
-              child: const Text("CLOSE"),
+              child: Text(LocaleKeys.close.tr),
             ),
           ),
         ],
@@ -189,7 +190,7 @@ void showResultDetailBottomSheet(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: TextButton(
               onPressed: () => Get.back(),
-              child: const Text("CLOSE"),
+              child: Text(LocaleKeys.close.tr),
             ),
           ),
         ],

@@ -6,6 +6,7 @@ import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/utils/languages.dart';
 import 'package:qr_scanner_app/utils/themes.dart';
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
+import 'package:intl/intl.dart';
 
 void showThemeBottomSheet(BuildContext context) {
   showModalBottomSheet(
@@ -173,7 +174,15 @@ void showResultDetailBottomSheet(
                   ? const ScanResultIcon()
                   : const GenerateResultIcon(),
               title: Text(title),
-              subtitle: Text(scanTime),
+              subtitle: Text(
+                DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                  DateTime.fromMillisecondsSinceEpoch(
+                    int.parse(
+                      scanTime,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
           Padding(

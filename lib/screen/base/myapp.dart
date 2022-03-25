@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
-import 'package:qr_scanner_app/service/box_controller.dart';
-import 'package:qr_scanner_app/service/language_service.dart';
-import 'package:qr_scanner_app/service/theme_service.dart';
+import 'package:qr_scanner_app/service/controllers/box_controller.dart';
+import 'package:qr_scanner_app/service/controllers/language_service.dart';
+import 'package:qr_scanner_app/service/controllers/theme_service.dart';
 import '../home.dart';
 
 class MyApp extends StatelessWidget {

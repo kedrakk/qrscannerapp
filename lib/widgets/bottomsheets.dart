@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
-import 'package:qr_scanner_app/service/language_service.dart';
-import 'package:qr_scanner_app/service/theme_service.dart';
+import 'package:qr_scanner_app/service/controllers/language_service.dart';
+import 'package:qr_scanner_app/service/controllers/theme_service.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/utils/languages.dart';
 import 'package:qr_scanner_app/utils/themes.dart';

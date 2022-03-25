@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
-import 'package:qr_scanner_app/service/qr_generate_controller.dart';
+import 'package:qr_scanner_app/service/controllers/qr_generate_controller.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
 import 'package:screenshot/screenshot.dart';
 

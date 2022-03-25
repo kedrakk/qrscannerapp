@@ -24,9 +24,11 @@ class InterstitialAdsController extends GetxController {
             },
           );
           _isInterstitialAdReady = true;
+          update();
         },
         onAdFailedToLoad: (err) {
           _isInterstitialAdReady = false;
+          update();
         },
       ),
     );

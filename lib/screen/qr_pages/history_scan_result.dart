@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
+import 'package:qr_scanner_app/service/controllers/adscontrollers/rewarded_ads_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/widgets/bottomsheets.dart';
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
@@ -18,41 +19,54 @@ class QrScanResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(7),
-      child: scanResultList.isNotEmpty
-          ? ListView.builder(
-              itemBuilder: (context, index) => ListTile(
-                onTap: () => showResultDetailBottomSheet(
-                  context,
-                  type,
-                  scanResultList[index].resultName,
-                  scanResultList[index].timestamp,
-                ),
-                textColor: MyColor.white,
-                leading: const ScanResultIcon(),
-                title: Text(
-                  scanResultList[index].resultName,
-                  maxLines: 2,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                subtitle: Text(
-                  DateFormat('EEEE, MMMM 21, y hh:mm a').format(
-                    DateTime.fromMillisecondsSinceEpoch(
-                      int.parse(
-                        scanResultList[index].timestamp,
+    return GetBuilder<RewardedAdsController>(
+        init: RewardedAdsController(),
+        builder: ((controller) {
+          return Padding(
+            padding: const EdgeInsets.all(7),
+            child: scanResultList.isNotEmpty
+                ? ListView.builder(
+                    itemBuilder: (context, index) => ListTile(
+                      onTap: () {
+                        if (controller.isRewardedAdReady &&
+                            controller.rewardedAd != null) {
+                          controller.rewardedAd?.show(
+                              onUserEarnedReward: (_, item) {
+                            debugPrint(item.type);
+                          });
+                        }
+                        showResultDetailBottomSheet(
+                          context,
+                          type,
+                          scanResultList[index].resultName,
+                          scanResultList[index].timestamp,
+                        );
+                      },
+                      textColor: MyColor.white,
+                      leading: const ScanResultIcon(),
+                      title: Text(
+                        scanResultList[index].resultName,
+                        maxLines: 2,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                          DateTime.fromMillisecondsSinceEpoch(
+                            int.parse(
+                              scanResultList[index].timestamp,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
+                    itemCount: scanResultList.length,
+                  )
+                : Center(
+                    child: Text(LocaleKeys.emptyscanresult.tr),
                   ),
-                ),
-              ),
-              itemCount: scanResultList.length,
-            )
-          : Center(
-              child: Text(LocaleKeys.emptyscanresult.tr),
-            ),
-    );
+          );
+        }));
   }
 }

@@ -50,6 +50,7 @@ dependencies:
   screenshot: ^1.2.3
   path_provider: ^2.0.9
   intl: ^0.17.0
+  google_mobile_ads: ^1.1.0
 
 dev_dependencies:
   flutter_test:

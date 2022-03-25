@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:qr_scanner_app/service/controllers/banner_ads_controller.dart';
+import 'package:qr_scanner_app/service/controllers/adscontrollers/banner_ads_controller.dart';
 
 class ShowBannerAdsPage extends StatelessWidget {
   const ShowBannerAdsPage({Key? key}) : super(key: key);

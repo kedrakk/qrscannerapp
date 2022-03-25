@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import '../../utils/ads_helper.dart';
+import '../../../utils/ads_helper.dart';
 
 class BannerAdsController extends GetxController {
   late BannerAd _bannerAd;

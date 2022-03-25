@@ -3,6 +3,7 @@ import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:get/get.dart';
 import '../widgets/bottomsheets.dart';
+import 'qr_pages/show_banner_ads_page.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -43,6 +44,10 @@ class SettingPage extends StatelessWidget {
             title: Text(LocaleKeys.shareapp.tr),
           ),
         ],
+      ),
+      bottomNavigationBar: SizedBox(
+        height: MediaQuery.of(context).size.height * 1 / 10,
+        child: const ShowBannerAdsPage(),
       ),
     );
   }

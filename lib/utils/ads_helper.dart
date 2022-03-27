@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:qr_scanner_app/utils/const.dart';
+import 'package:qr_scanner_app/utils/ads_const.dart';
 
 class AdHelper {
   static String get bannerAdUnitId {

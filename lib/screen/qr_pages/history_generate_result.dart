@@ -20,50 +20,51 @@ class QRGenerateResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<InterstitialAdsController>(
-        init: InterstitialAdsController(),
-        builder: ((controller) {
-          return Padding(
-            padding: const EdgeInsets.all(7),
-            child: generateResultList.isNotEmpty
-                ? ListView.builder(
-                    itemBuilder: (context, index) => ListTile(
-                      onTap: () {
-                        if (controller.isInterstitialAdReady &&
-                            controller.interstitialAds != null) {
-                          controller.interstitialAds?.show();
-                        }
-                        showResultDetailBottomSheet(
-                          context,
-                          type,
-                          generateResultList[index].resultName,
-                          generateResultList[index].timestamp,
-                        );
-                      },
-                      textColor: MyColor.white,
-                      leading: const GenerateResultIcon(),
-                      title: Text(
+      init: InterstitialAdsController(),
+      builder: ((controller) {
+        return Padding(
+          padding: const EdgeInsets.all(7),
+          child: generateResultList.isNotEmpty
+              ? ListView.builder(
+                  itemBuilder: (context, index) => ListTile(
+                    onTap: () {
+                      if (controller.isInterstitialAdReady &&
+                          controller.interstitialAds != null) {
+                        controller.interstitialAds?.show();
+                      }
+                      showResultDetailBottomSheet(
+                        context,
+                        type,
                         generateResultList[index].resultName,
-                        maxLines: 2,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        generateResultList[index].timestamp,
+                      );
+                    },
+                    textColor: MyColor.white,
+                    leading: const GenerateResultIcon(),
+                    title: Text(
+                      generateResultList[index].resultName,
+                      maxLines: 2,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
                       ),
-                      subtitle: Text(
-                        DateFormat('EEEE, MMMM 21, y hh:mm a').format(
-                          DateTime.fromMillisecondsSinceEpoch(
-                            int.parse(
-                              generateResultList[index].timestamp,
-                            ),
+                    ),
+                    subtitle: Text(
+                      DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                        DateTime.fromMillisecondsSinceEpoch(
+                          int.parse(
+                            generateResultList[index].timestamp,
                           ),
                         ),
                       ),
                     ),
-                    itemCount: generateResultList.length,
-                  )
-                : Center(
-                    child: Text(LocaleKeys.emptygenerateresult.tr),
                   ),
-          );
-        }));
+                  itemCount: generateResultList.length,
+                )
+              : Center(
+                  child: Text(LocaleKeys.emptygenerateresult.tr),
+                ),
+        );
+      }),
+    );
   }
 }

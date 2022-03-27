@@ -6,6 +6,8 @@ import 'package:qr_scanner_app/service/controllers/barcode_scan_controller.dart'
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:scan/scan.dart';
 
+import '../../service/controllers/adscontrollers/interstitial_ads_controller.dart';
+
 class QRActionPage extends StatelessWidget {
   const QRActionPage({Key? key}) : super(key: key);
 
@@ -55,18 +57,21 @@ class QRActionPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          TextButton.icon(
-                            style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all(
-                                MyColor.white,
-                              ),
-                            ),
+                          ScanNewButton(
                             onPressed: () => controller.refreshNew(),
-                            icon: const Icon(Icons.qr_code),
-                            label: Text(
-                              LocaleKeys.scannew.tr,
-                            ),
                           ),
+                          // TextButton.icon(
+                          //   style: ButtonStyle(
+                          //     foregroundColor: MaterialStateProperty.all(
+                          //       MyColor.white,
+                          //     ),
+                          //   ),
+                          //   onPressed: () => controller.refreshNew(),
+                          //   icon: const Icon(Icons.qr_code),
+                          //   label: Text(
+                          //     LocaleKeys.scannew.tr,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -95,21 +100,32 @@ class ScanNewButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
   }) : super(key: key);
-  final void Function()? onPressed;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
-      style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all(
-          MyColor.white,
-        ),
-      ),
-      onPressed: onPressed,
-      icon: const Icon(Icons.qr_code),
-      label: Text(
-        LocaleKeys.scannew.tr,
-      ),
+    return GetBuilder<InterstitialAdsController>(
+      init: InterstitialAdsController(),
+      builder: ((controller) {
+        return TextButton.icon(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(
+              MyColor.white,
+            ),
+          ),
+          onPressed: () {
+            if (controller.isInterstitialAdReady &&
+                controller.interstitialAds != null) {
+              controller.interstitialAds?.show();
+            }
+            onPressed();
+          },
+          icon: const Icon(Icons.qr_code),
+          label: Text(
+            LocaleKeys.scannew.tr,
+          ),
+        );
+      }),
     );
   }
 }

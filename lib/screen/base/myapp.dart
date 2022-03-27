@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
+import 'package:qr_scanner_app/screen/base/splash_screen.dart';
 import 'package:qr_scanner_app/service/bindings/intitial_binding.dart';
 import 'package:qr_scanner_app/service/controllers/language_service.dart';
 import 'package:qr_scanner_app/service/controllers/theme_service.dart';
-import '../home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'QR Scanner',
       theme: ThemeService().getTheme(),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const SplashScreenPage(),
       locale: LanguageService().getCurrentLanguage(),
       translationsKeys: AppTranslation.translations,
       fallbackLocale: const Locale('en', 'US'),

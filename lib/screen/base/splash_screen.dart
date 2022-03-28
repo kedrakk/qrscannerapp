@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:qr_scanner_app/service/controllers/splash_controller.dart';
+import 'package:qr_scanner_app/service/controllers/common_controllers/splash_controller.dart';
 import 'package:qr_scanner_app/utils/const.dart';
 
 class SplashScreenPage extends StatelessWidget {

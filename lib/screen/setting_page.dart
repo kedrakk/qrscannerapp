@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
-import 'package:qr_scanner_app/service/controllers/switch_controller.dart';
+import 'package:qr_scanner_app/service/controllers/common_controllers/switch_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:get/get.dart';
 import '../widgets/bottomsheets.dart';

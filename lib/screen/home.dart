@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_scanner_app/service/controllers/bottom_bar_controller.dart';
+import 'package:qr_scanner_app/service/controllers/common_controllers/bottom_bar_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
 class HomePage extends StatelessWidget {

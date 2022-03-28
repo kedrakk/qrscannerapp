@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/screen/base/splash_screen.dart';
 import 'package:qr_scanner_app/service/bindings/intitial_binding.dart';
-import 'package:qr_scanner_app/service/controllers/language_service.dart';
-import 'package:qr_scanner_app/service/controllers/theme_service.dart';
+import 'package:qr_scanner_app/service/services/language_service.dart';
+import 'package:qr_scanner_app/service/services/theme_service.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,9 +24,6 @@ class MyApp extends StatelessWidget {
       locale: LanguageService().getCurrentLanguage(),
       translationsKeys: AppTranslation.translations,
       fallbackLocale: const Locale('en', 'US'),
-      // initialBinding: BindingsBuilder.put(
-      //   () => BoxController(),
-      // ),
       initialBinding: RootBinding(),
     );
   }

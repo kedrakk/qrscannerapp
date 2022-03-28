@@ -168,18 +168,20 @@ void showResultDetailBottomSheet(
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(7),
-            child: ListTile(
-              leading: type.toLowerCase().contains('scan')
-                  ? const ScanResultIcon()
-                  : const GenerateResultIcon(),
-              title: Text(title),
-              subtitle: Text(
-                DateFormat('EEEE, MMMM 21, y hh:mm a').format(
-                  DateTime.fromMillisecondsSinceEpoch(
-                    int.parse(
-                      scanTime,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(7),
+              child: ListTile(
+                leading: type.toLowerCase().contains('scan')
+                    ? const ScanResultIcon()
+                    : const GenerateResultIcon(),
+                title: Text(title),
+                subtitle: Text(
+                  DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                    DateTime.fromMillisecondsSinceEpoch(
+                      int.parse(
+                        scanTime,
+                      ),
                     ),
                   ),
                 ),

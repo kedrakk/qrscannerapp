@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
-import 'package:qr_scanner_app/service/controllers/barcode_scan_controller.dart';
+import 'package:qr_scanner_app/service/controllers/barcode_scan_with_barcode_scan_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
-import 'package:scan/scan.dart';
 
 import '../../service/controllers/adscontrollers/interstitial_ads_controller.dart';
 
-class QRActionPage extends StatelessWidget {
-  const QRActionPage({Key? key}) : super(key: key);
+class QRActionWithBarcodeScanPage extends StatelessWidget {
+  const QRActionWithBarcodeScanPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<BarcodeScanController>(
-      init: BarcodeScanController(),
+    return GetBuilder<BarcodeScanWithBarcodeScanController>(
+      init: BarcodeScanWithBarcodeScanController(),
       builder: (controller) => Scaffold(
         appBar: AppBar(
           title: Text(LocaleKeys.myqr.tr),
@@ -32,37 +31,29 @@ class QRActionPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              controller.qrCode.isEmpty
-                  ? Container(
-                      width: MediaQuery.of(context).size.width * 2 / 3,
-                      height: MediaQuery.of(context).size.height * 1 / 3,
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 10),
-                      child: ScanView(
-                        controller: controller.scanController,
-                        scanAreaScale: .9,
-                        scanLineColor: Get.theme.scaffoldBackgroundColor,
-                        onCapture: (data) => controller.scanQR(data),
+              Center(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 15,
                       ),
-                    )
-                  : Center(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              controller.qrCode,
-                              style: const TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                          ),
-                          ScanNewButton(
-                            onPressed: () => controller.refreshNew(),
-                          ),
-                        ],
+                      child: Text(
+                        controller.qrCode.isNotEmpty
+                            ? controller.qrCode
+                            : "Click the button below to scan qr or barcode",
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
                       ),
                     ),
+                    ScanNewButton(
+                      onPressed: () => controller.refreshNew(),
+                    ),
+                  ],
+                ),
+              ),
               TextButton.icon(
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(

@@ -15,7 +15,9 @@ class BarcodeScanWithBarcodeScanController extends GetxController {
   scanQR() async {
     var _result = await BarcodeScanner.scan(options: scanOption);
     _qrcode = _result.rawContent;
-    _storeData(_qrcode);
+    if (_qrcode.isNotEmpty) {
+      _storeData(_qrcode);
+    }
     update();
   }
 
@@ -35,6 +37,7 @@ class BarcodeScanWithBarcodeScanController extends GetxController {
   scanFromImage(String path) async {
     String? _scanRes = await Scan.parse(path);
     if (_scanRes != null) {
+      _qrcode = _scanRes;
       _storeData(_qrcode);
       update();
     } else {

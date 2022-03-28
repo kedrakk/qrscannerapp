@@ -99,6 +99,7 @@ class GenerateQRPage extends StatelessWidget {
                           controller: controller.screenshotController,
                           child: QrImage(
                             backgroundColor: Get.theme.scaffoldBackgroundColor,
+                            foregroundColor: MyColor.white,
                             data: controller.qrResult,
                             version: QrVersions.auto,
                             errorStateBuilder: (cxt, err) {

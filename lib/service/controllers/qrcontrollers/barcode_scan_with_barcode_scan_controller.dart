@@ -2,6 +2,7 @@ import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:qr_scanner_app/service/services/switch_service.dart';
 import 'package:qr_scanner_app/utils/const.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
 import 'package:scan/scan.dart';
@@ -56,7 +57,9 @@ class BarcodeScanWithBarcodeScanController extends GetxController {
 
   @override
   void onInit() {
-    scanQR();
+    if (SwitchService().getSwitchValue()) {
+      scanQR();
+    }
     super.onInit();
   }
 }

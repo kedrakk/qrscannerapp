@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
-import 'package:qr_scanner_app/service/controllers/barcode_scan_controller.dart';
+import 'package:qr_scanner_app/service/controllers/qrcontrollers/barcode_scan_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:scan/scan.dart';
 

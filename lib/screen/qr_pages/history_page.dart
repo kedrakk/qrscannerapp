@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/screen/qr_pages/history_generate_result.dart';
 import 'package:qr_scanner_app/screen/qr_pages/history_scan_result.dart';
-import 'package:qr_scanner_app/service/controllers/history_controller.dart';
+import 'package:qr_scanner_app/service/controllers/qrcontrollers/history_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
 class QRHistoryPage extends StatelessWidget {

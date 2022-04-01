@@ -18,5 +18,6 @@
     "qrgenerateersult":"QR Generate Results",
     "emptyscanresult":"Empty Scan History",
     "emptygenerateresult":"Empty Generate History",
-    "close":"CLOSE"
+    "close":"CLOSE",
+    "autoscan":"Auto Scan On Page Start"
 }

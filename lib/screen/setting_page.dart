@@ -72,7 +72,7 @@ class AutoScanWidget extends StatelessWidget {
             value: controller.isSwitch,
             onChanged: (value) => controller.changeSwitchValue(value),
           ),
-          title: const Text("Auto Scan On Page Start"),
+          title: Text(LocaleKeys.autoscan.tr),
           onTap: () => controller.changeSwitchValue(!controller.isSwitch),
         );
       }),

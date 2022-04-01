@@ -32,6 +32,7 @@ class LocaleKeys {
   static const emptyscanresult = 'emptyscanresult';
   static const emptygenerateresult = 'emptygenerateresult';
   static const close = 'close';
+  static const autoscan = 'autoscan';
 }
 
 class Locales {
@@ -56,6 +57,7 @@ class Locales {
     'emptyscanresult': 'Empty Scan History',
     'emptygenerateresult': 'Empty Generate History',
     'close': 'CLOSE',
+    'autoscan': 'Auto Scan On Page Start',
   };
   static const es = {
     'setting': 'AJUSTE',
@@ -79,6 +81,7 @@ class Locales {
     'emptyscanresult': 'Historial de escaneo vacío',
     'emptygenerateresult': 'Vacío Generar historial',
     'close': 'CERRAR',
+    'autoscan': 'Escaneo automático al inicio',
   };
   static const mm = {
     'setting': 'တပ်ဆင်ခြင်းများ',
@@ -102,5 +105,6 @@ class Locales {
     'emptyscanresult': 'စကန်ရလဒ်များမရှိသေးပါ',
     'emptygenerateresult': 'ကျုအာထုတ်ခဲ့သည့်ရလဒ်များမရှိသေးပါ',
     'close': 'ပိတ်ပါ',
+    'autoscan': 'ပင်မပေ့ချ်တွင် အလိုအလျောက်စကင်န်ဖတ်မည်',
   };
 }

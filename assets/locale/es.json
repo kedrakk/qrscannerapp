@@ -18,5 +18,6 @@
     "qrgenerateersult":"QR Generar Resultados",
     "emptyscanresult":"Historial de escaneo vacío",
     "emptygenerateresult":"Vacío Generar historial",
-    "close":"CERRAR"
+    "close":"CERRAR",
+    "autoscan":"Escaneo automático al inicio"
 }

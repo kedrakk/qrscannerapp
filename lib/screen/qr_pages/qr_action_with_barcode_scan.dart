@@ -30,18 +30,26 @@ class QRActionWithBarcodeScanPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(
-                child: Padding(
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: 100,
+                  minWidth: 100,
+                  maxHeight: MediaQuery.of(context).size.height * 1.3 / 2,
+                  maxWidth: MediaQuery.of(context).size.width,
+                ),
+                child: Container(
                   padding: const EdgeInsets.symmetric(
                     vertical: 10.0,
-                    horizontal: 15,
+                    horizontal: 20,
                   ),
-                  child: Text(
-                    controller.qrCode.isNotEmpty
-                        ? controller.qrCode
-                        : "Click the button below to scan qr or barcode",
-                    style: const TextStyle(
-                      fontSize: 18,
+                  child: SingleChildScrollView(
+                    child: Text(
+                      controller.qrCode.isNotEmpty
+                          ? controller.qrCode
+                          : "Click the button below to scan qr or barcode",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

@@ -49,7 +49,7 @@ class QRActionWithBarcodeScanPage extends StatelessWidget {
                       ),
                     ),
                     ScanNewButton(
-                      onPressed: () => controller.refreshNew(),
+                      onPressed: () => controller.scanQR(),
                     ),
                   ],
                 ),

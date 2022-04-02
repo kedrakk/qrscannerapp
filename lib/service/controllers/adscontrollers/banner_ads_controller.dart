@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import '../../../utils/ads_helper.dart';
 
 class BannerAdsController extends GetxController {
   late BannerAd _bannerAd;
@@ -10,9 +9,14 @@ class BannerAdsController extends GetxController {
   bool _isBannerReady = false;
   bool get isBannerReady => _isBannerReady;
 
+  String bannerAdId = "";
+  BannerAdsController({required String adsId}) {
+    bannerAdId = adsId;
+  }
+
   _getBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: AdHelper.bannerAdUnitId,
+      adUnitId: bannerAdId,
       request: const AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(

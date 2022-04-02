@@ -4,12 +4,16 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:qr_scanner_app/service/controllers/adscontrollers/banner_ads_controller.dart';
 
 class ShowBannerAdsPage extends StatelessWidget {
-  const ShowBannerAdsPage({Key? key}) : super(key: key);
+  const ShowBannerAdsPage({
+    Key? key,
+    required this.bannerAdsId,
+  }) : super(key: key);
+  final String bannerAdsId;
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BannerAdsController>(
-      init: BannerAdsController(),
+      init: BannerAdsController(adsId: bannerAdsId),
       builder: ((controller) {
         if (controller.isBannerReady) {
           return Align(

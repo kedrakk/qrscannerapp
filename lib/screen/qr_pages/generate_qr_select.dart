@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_app/model/generate_type.dart';
+import 'package:qr_scanner_app/utils/ads_helper.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
 import 'show_banner_ads_page.dart';
@@ -101,7 +102,9 @@ class GenerateQRSelectPage extends StatelessWidget {
       ),
       bottomNavigationBar: SizedBox(
         height: MediaQuery.of(context).size.height * 1 / 10,
-        child: const ShowBannerAdsPage(),
+        child: ShowBannerAdsPage(
+          bannerAdsId: AdHelper.bannerAdUnitId,
+        ),
       ),
     );
   }

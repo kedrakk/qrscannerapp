@@ -40,10 +40,13 @@ class QrScanResultPage extends StatelessWidget {
                           type,
                           scanResultList[index].resultName,
                           scanResultList[index].timestamp,
+                          scanResultList[index].leadingIcon,
                         );
                       },
                       textColor: MyColor.white,
-                      leading: const ScanResultIcon(),
+                      leading: ScanResultIcon(
+                        leadingIcon: scanResultList[index].leadingIcon,
+                      ),
                       title: Text(
                         scanResultList[index].resultName,
                         maxLines: 2,

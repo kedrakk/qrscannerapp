@@ -37,6 +37,7 @@ class QRGenerateResultPage extends StatelessWidget {
                         type,
                         generateResultList[index].resultName,
                         generateResultList[index].timestamp,
+                        generateResultList[index].leadingIcon,
                       );
                     },
                     textColor: MyColor.white,

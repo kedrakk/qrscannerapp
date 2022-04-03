@@ -141,8 +141,8 @@ void showLanguageBottomSheet(BuildContext context) {
   );
 }
 
-void showResultDetailBottomSheet(
-    BuildContext context, String type, String title, String scanTime) {
+void showResultDetailBottomSheet(BuildContext context, String type,
+    String title, String scanTime, String leadingIcon) {
   showModalBottomSheet(
     backgroundColor: Colors.transparent,
     context: context,
@@ -173,7 +173,9 @@ void showResultDetailBottomSheet(
               padding: const EdgeInsets.all(7),
               child: ListTile(
                 leading: type.toLowerCase().contains('scan')
-                    ? const ScanResultIcon()
+                    ? ScanResultIcon(
+                        leadingIcon: leadingIcon,
+                      )
                     : const GenerateResultIcon(),
                 title: Text(title),
                 subtitle: Text(

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -11,6 +10,7 @@ import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/widgets/snackbars.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
+import '../../../model/history_result.dart';
 
 class QRGenerator extends GetxController {
   String _qrResult = "";
@@ -91,10 +91,15 @@ class QRGenerator extends GetxController {
 
   _storeData(String value) {
     final _timeStamp = DateTime.now().millisecondsSinceEpoch.toString();
+    HistoryResult _historyResult = HistoryResult(
+      leadingIcon: value,
+      resultName: value,
+      timestamp: _timeStamp,
+    );
     var _box = Hive.box('generatebox');
     if (_box.length > 9) {
       _box.deleteAt(0);
     }
-    _box.put(_timeStamp, value);
+    _box.put(_timeStamp, _historyResult);
   }
 }

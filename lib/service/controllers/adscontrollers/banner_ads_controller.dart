@@ -1,22 +1,18 @@
 import 'package:get/get.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:qr_scanner_app/utils/ads_helper.dart';
 
 class BannerAdsController extends GetxController {
-  late BannerAd _bannerAd;
-  BannerAd get bannerAd => _bannerAd;
+  BannerAd? _bannerAd;
+  BannerAd? get bannerAd => _bannerAd;
 
   bool _isBannerReady = false;
   bool get isBannerReady => _isBannerReady;
 
-  String bannerAdId = "";
-  BannerAdsController({required String adsId}) {
-    bannerAdId = adsId;
-  }
-
   _getBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: bannerAdId,
+      adUnitId: AdHelper.bannerAdUnitId,
       request: const AdRequest(),
       size: AdSize.banner,
       listener: BannerAdListener(
@@ -27,22 +23,32 @@ class BannerAdsController extends GetxController {
         onAdFailedToLoad: (ad, err) {
           debugPrint('Failed to load a banner ad: ${err.message}');
           ad.dispose();
+          update();
         },
       ),
     );
-    _bannerAd.load();
+    _bannerAd?.load();
     update();
+  }
+
+  refreshBannerAds() {
+    if (_bannerAd != null) {
+      _bannerAd?.dispose();
+    }
+    _getBannerAd();
   }
 
   @override
   void onInit() {
-    _getBannerAd();
+    refreshBannerAds();
     super.onInit();
   }
 
   @override
   void onClose() {
-    _bannerAd.dispose();
+    if (_bannerAd != null) {
+      _bannerAd?.dispose();
+    }
     super.onClose();
   }
 }

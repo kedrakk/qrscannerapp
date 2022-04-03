@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_app/model/generate_type.dart';
-import 'package:qr_scanner_app/utils/ads_helper.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
-
-import 'show_banner_ads_page.dart';
 
 class GenerateQRSelectPage extends StatelessWidget {
   GenerateQRSelectPage({Key? key}) : super(key: key);
@@ -98,12 +95,6 @@ class GenerateQRSelectPage extends StatelessWidget {
                   .toList(),
             )
           ],
-        ),
-      ),
-      bottomNavigationBar: SizedBox(
-        height: MediaQuery.of(context).size.height * 1 / 10,
-        child: ShowBannerAdsPage(
-          bannerAdsId: AdHelper.bannerAdUnitId,
         ),
       ),
     );

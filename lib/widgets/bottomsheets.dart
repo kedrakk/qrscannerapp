@@ -6,6 +6,7 @@ import 'package:qr_scanner_app/service/services/theme_service.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/utils/languages.dart';
 import 'package:qr_scanner_app/utils/themes.dart';
+import 'package:qr_scanner_app/widgets/generate_widgets/generate_history_widget.dart';
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
 import 'package:intl/intl.dart';
 
@@ -171,25 +172,25 @@ void showResultDetailBottomSheet(BuildContext context, String type,
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(7),
-              child: ListTile(
-                leading: type.toLowerCase().contains('scan')
-                    ? ScanResultIcon(
-                        leadingIcon: leadingIcon,
-                      )
-                    : GenerateResultIcon(
+              child: type.toLowerCase().contains('scan')
+                  ? ListTile(
+                      leading: ScanResultIcon(
                         leadingIcon: leadingIcon,
                       ),
-                title: Text(title),
-                subtitle: Text(
-                  DateFormat('EEEE, MMMM 21, y hh:mm a').format(
-                    DateTime.fromMillisecondsSinceEpoch(
-                      int.parse(
-                        scanTime,
+                      title: Text(title),
+                      subtitle: Text(
+                        DateFormat('EEEE, MMMM 21, y hh:mm a').format(
+                          DateTime.fromMillisecondsSinceEpoch(
+                            int.parse(
+                              scanTime,
+                            ),
+                          ),
+                        ),
                       ),
+                    )
+                  : GenerateHistoryResultWidget(
+                      resultToShow: title,
                     ),
-                  ),
-                ),
-              ),
             ),
           ),
           Padding(

@@ -41,7 +41,9 @@ class QRGenerateResultPage extends StatelessWidget {
                       );
                     },
                     textColor: MyColor.white,
-                    leading: const GenerateResultIcon(),
+                    leading: GenerateResultIcon(
+                      leadingIcon: generateResultList[index].leadingIcon,
+                    ),
                     title: Text(
                       generateResultList[index].resultName,
                       maxLines: 2,

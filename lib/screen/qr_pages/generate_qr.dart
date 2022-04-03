@@ -3,21 +3,28 @@ import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/service/controllers/qrcontrollers/qr_generate_controller.dart';
-import 'package:qr_scanner_app/widgets/dialogs.dart';
+import 'package:qr_scanner_app/widgets/generate_widgets/card_field.dart';
+import 'package:qr_scanner_app/widgets/generate_widgets/contact_field.dart';
+import 'package:qr_scanner_app/widgets/generate_widgets/single_field_widget.dart';
+import 'package:qr_scanner_app/widgets/generate_widgets/smsfield.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../utils/colors.dart';
 
 class GenerateQRPage extends StatelessWidget {
-  const GenerateQRPage({Key? key}) : super(key: key);
+  const GenerateQRPage({
+    Key? key,
+    required this.generateType,
+  }) : super(key: key);
+  final String generateType;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Generate QR",
-          style: TextStyle(
+        title: Text(
+          "Generate $generateType",
+          style: const TextStyle(
             fontSize: 15,
           ),
         ),
@@ -29,61 +36,20 @@ class GenerateQRPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 20, top: 5),
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: TextFormField(
-                          controller: controller.qrTextController,
-                          showCursor: true,
-                          cursorColor: MyColor.white,
-                          style: const TextStyle(color: MyColor.white),
-                          decoration: InputDecoration(
-                            enabledBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: MyColor.white,
-                              ),
-                            ),
-                            focusedBorder: const UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: MyColor.white,
-                              ),
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: () => controller.clearKeywords(),
-                              icon: Icon(
-                                Icons.close,
-                                color: controller.suffixIconColor,
-                              ),
-                            ),
-                            suffixIconColor: controller.suffixIconColor,
-                          ),
-                          maxLines: 4,
-                          minLines: 2,
-                          onChanged: (txt) => controller.textOnchange(txt),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () =>
-                            controller.qrTextController.text.isEmpty
-                                ? showEmptyTextDialog()
-                                : controller.generateQR(),
-                        child: const Text(
-                          "Generate",
-                          style: TextStyle(color: MyColor.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                generateType.toLowerCase() == "contact"
+                    ? const ContactFieldPage()
+                    : (generateType.toLowerCase() == "card"
+                        ? const CardFieldPage()
+                        : (generateType.toLowerCase() == "sms"
+                            ? const SMSFieldPage()
+                            : SingleFieldPage(
+                                controller: controller,
+                                type: generateType,
+                              ))),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 1 / 10,
                 ),
-                controller.qrTextController.text.isNotEmpty &&
-                        controller.qrResult.isNotEmpty
+                controller.qrResult.isNotEmpty
                     ? Container(
                         margin: const EdgeInsets.symmetric(
                           vertical: 10,
@@ -131,8 +97,7 @@ class GenerateQRPage extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 1 / 10,
                 ),
-                controller.qrTextController.text.isNotEmpty &&
-                        controller.qrResult.isNotEmpty
+                controller.qrResult.isNotEmpty
                     ? Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10, vertical: 15),

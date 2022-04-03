@@ -20,16 +20,18 @@ class ScanResultIcon extends StatelessWidget {
 }
 
 class GenerateResultIcon extends StatelessWidget {
-  const GenerateResultIcon({Key? key}) : super(key: key);
+  const GenerateResultIcon({
+    Key? key,
+    required this.leadingIcon,
+  }) : super(key: key);
+  final String leadingIcon;
 
   @override
   Widget build(BuildContext context) {
-    return const CircleAvatar(
+    return CircleAvatar(
       radius: 25,
       backgroundColor: MyColor.white,
-      child: Icon(
-        Icons.photo,
-      ),
+      child: leadingIcon.typeIcon(),
     );
   }
 }

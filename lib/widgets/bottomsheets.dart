@@ -176,7 +176,9 @@ void showResultDetailBottomSheet(BuildContext context, String type,
                     ? ScanResultIcon(
                         leadingIcon: leadingIcon,
                       )
-                    : const GenerateResultIcon(),
+                    : GenerateResultIcon(
+                        leadingIcon: leadingIcon,
+                      ),
                 title: Text(title),
                 subtitle: Text(
                   DateFormat('EEEE, MMMM 21, y hh:mm a').format(

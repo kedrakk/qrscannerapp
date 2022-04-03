@@ -38,11 +38,6 @@ class GenerateQRSelectPage extends StatelessWidget {
       title: "EMAIL",
       subtitle: "Email Address Information",
     ),
-    GenerateType(
-      leadingIcon: const Icon(Icons.credit_card),
-      title: "CARD",
-      subtitle: "Payment Card Information",
-    ),
   ];
 
   @override
@@ -72,7 +67,9 @@ class GenerateQRSelectPage extends StatelessWidget {
                   .map(
                     (e) => ListTile(
                       onTap: () => Get.to(
-                        () => const GenerateQRPage(),
+                        () => GenerateQRPage(
+                          generateType: e.title,
+                        ),
                       ),
                       isThreeLine: true,
                       shape: const RoundedRectangleBorder(

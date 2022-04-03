@@ -11,13 +11,14 @@ import 'package:qr_scanner_app/widgets/snackbars.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../model/history_result.dart';
+import 'package:qr_scanner_app/utils/extensions.dart';
 
 class QRGenerator extends GetxController {
   String _qrResult = "";
   String get qrResult => _qrResult;
 
   final TextEditingController _textEditingController = TextEditingController();
-  TextEditingController get qrTextController => _textEditingController;
+  TextEditingController get singleFieldController => _textEditingController;
 
   Color _suffixIconColor = Get.theme.scaffoldBackgroundColor;
   Color get suffixIconColor => _suffixIconColor;
@@ -33,9 +34,15 @@ class QRGenerator extends GetxController {
     super.onInit();
   }
 
-  void generateQR() {
-    _qrResult = _textEditingController.text;
-    _storeData(_qrResult);
+  void generateQRSingle(String type) {
+    debugPrint(type);
+    _qrResult = _textEditingController.text.toGenerateFormat(type);
+    HistoryResult _historyResult = HistoryResult(
+      leadingIcon: "BarcodeType.${type.toLowerCase()}",
+      resultName: _qrResult,
+      timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
+    );
+    _storeData(_historyResult);
     update();
   }
 
@@ -53,6 +60,7 @@ class QRGenerator extends GetxController {
     if (_textEditingController.text.isNotEmpty) {
       _textEditingController.clear();
       _suffixIconColor = Get.theme.scaffoldBackgroundColor;
+      _qrResult = "";
       update();
     }
   }
@@ -89,18 +97,12 @@ class QRGenerator extends GetxController {
     }
   }
 
-  _storeData(String value) {
-    final _timeStamp = DateTime.now().millisecondsSinceEpoch.toString();
-    HistoryResult _historyResult = HistoryResult(
-      leadingIcon: value,
-      resultName: value,
-      timestamp: _timeStamp,
-    );
+  _storeData(HistoryResult _historyResult) {
     var _box = Hive.box('generatebox');
     if (_box.length > 9) {
       _box.deleteAt(0);
     }
-    _box.put(_timeStamp, _historyResult);
+    _box.put(_historyResult.timestamp, _historyResult);
   }
 
   @override

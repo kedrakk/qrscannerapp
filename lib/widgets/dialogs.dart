@@ -38,3 +38,21 @@ void showInvalidQRDialog() {
     middleTextStyle: TextStyle(color: Get.theme.scaffoldBackgroundColor),
   );
 }
+
+void showComingSoonDialog() {
+  Get.defaultDialog(
+    title: "Coming Soon",
+    middleText: "This feature is coming soon. Stay Tuned!",
+    confirm: ElevatedButton.icon(
+      onPressed: () => Get.back(),
+      icon: const Icon(Icons.check),
+      label: const Text(
+        "OK",
+      ),
+    ),
+    titlePadding: const EdgeInsets.all(10),
+    backgroundColor: MyColor.white,
+    titleStyle: TextStyle(color: Get.theme.scaffoldBackgroundColor),
+    middleTextStyle: TextStyle(color: Get.theme.scaffoldBackgroundColor),
+  );
+}

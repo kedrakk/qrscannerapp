@@ -4,6 +4,7 @@ import 'package:qr_scanner_app/model/generate_type.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr_sms.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
+import 'package:qr_scanner_app/widgets/dialogs.dart';
 
 class GenerateQRSelectPage extends StatelessWidget {
   GenerateQRSelectPage({Key? key}) : super(key: key);
@@ -20,11 +21,6 @@ class GenerateQRSelectPage extends StatelessWidget {
       subtitle: "Paragraph Or Short Texts",
     ),
     GenerateType(
-      leadingIcon: const Icon(Icons.contacts),
-      title: "CONTACT",
-      subtitle: "Contact Information",
-    ),
-    GenerateType(
       leadingIcon: const Icon(Icons.phone),
       title: "PHONE",
       subtitle: "Phone Number Information",
@@ -38,6 +34,11 @@ class GenerateQRSelectPage extends StatelessWidget {
       leadingIcon: const Icon(Icons.alternate_email),
       title: "EMAIL",
       subtitle: "Email Address Information",
+    ),
+    GenerateType(
+      leadingIcon: const Icon(Icons.contacts),
+      title: "CONTACT",
+      subtitle: "Contact Information",
     ),
   ];
 
@@ -72,6 +73,8 @@ class GenerateQRSelectPage extends StatelessWidget {
                           Get.to(
                             () => const GenerateQRSMSPage(),
                           );
+                        } else if (e.title.toLowerCase() == "contact") {
+                          showComingSoonDialog();
                         } else {
                           Get.to(
                             () => GenerateQRPage(

@@ -13,6 +13,8 @@ extension TypeIcon on String {
     switch (this) {
       case "BarcodeType.contactInfo":
         return const Icon(Icons.contacts);
+      case "BarcodeType.contact":
+        return const Icon(Icons.contacts);
       case "BarcodeType.email":
         return const Icon(Icons.alternate_email);
       case "BarcodeType.phone":
@@ -44,6 +46,21 @@ extension GenerateResulType on String {
             : ("+959" + (startsWith('09') ? substring(2) : this));
       default:
         return this;
+    }
+  }
+}
+
+extension KeyBoardType on String {
+  TextInputType toInputType() {
+    switch (this) {
+      case "URL":
+        return TextInputType.url;
+      case "EMAIL":
+        return TextInputType.emailAddress;
+      case "PHONE":
+        return TextInputType.phone;
+      default:
+        return TextInputType.multiline;
     }
   }
 }

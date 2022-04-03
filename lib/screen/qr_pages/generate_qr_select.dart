@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/model/generate_type.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
+import 'package:qr_scanner_app/screen/qr_pages/generate_qr_sms.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
 class GenerateQRSelectPage extends StatelessWidget {
@@ -66,11 +67,19 @@ class GenerateQRSelectPage extends StatelessWidget {
               children: allGenerateTypes
                   .map(
                     (e) => ListTile(
-                      onTap: () => Get.to(
-                        () => GenerateQRPage(
-                          generateType: e.title,
-                        ),
-                      ),
+                      onTap: () {
+                        if (e.title.toLowerCase() == "sms") {
+                          Get.to(
+                            () => const GenerateQRSMSPage(),
+                          );
+                        } else {
+                          Get.to(
+                            () => GenerateQRPage(
+                              generateType: e.title,
+                            ),
+                          );
+                        }
+                      },
                       isThreeLine: true,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(

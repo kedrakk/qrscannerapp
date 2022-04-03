@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../service/controllers/qrcontrollers/qr_generate_controller.dart';
 import '../../utils/colors.dart';
 import '../dialogs.dart';
+import 'package:qr_scanner_app/utils/extensions.dart';
 
 class SingleFieldPage extends StatelessWidget {
   const SingleFieldPage({
@@ -25,9 +26,12 @@ class SingleFieldPage extends StatelessWidget {
             child: TextFormField(
               controller: controller.singleFieldController,
               showCursor: true,
+              keyboardType: type.toInputType(),
               cursorColor: MyColor.white,
               style: const TextStyle(color: MyColor.white),
               decoration: InputDecoration(
+                label: Text("Enter $type"),
+                labelStyle: const TextStyle(color: MyColor.white, fontSize: 13),
                 enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: MyColor.white,

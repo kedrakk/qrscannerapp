@@ -3,10 +3,7 @@ import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/service/controllers/qrcontrollers/qr_generate_controller.dart';
-import 'package:qr_scanner_app/widgets/generate_widgets/card_field.dart';
-import 'package:qr_scanner_app/widgets/generate_widgets/contact_field.dart';
 import 'package:qr_scanner_app/widgets/generate_widgets/single_field_widget.dart';
-import 'package:qr_scanner_app/widgets/generate_widgets/smsfield.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../utils/colors.dart';
@@ -36,16 +33,10 @@ class GenerateQRPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                generateType.toLowerCase() == "contact"
-                    ? const ContactFieldPage()
-                    : (generateType.toLowerCase() == "card"
-                        ? const CardFieldPage()
-                        : (generateType.toLowerCase() == "sms"
-                            ? const SMSFieldPage()
-                            : SingleFieldPage(
-                                controller: controller,
-                                type: generateType,
-                              ))),
+                SingleFieldPage(
+                  controller: controller,
+                  type: generateType,
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 1 / 10,
                 ),

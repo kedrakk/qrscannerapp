@@ -41,7 +41,7 @@ class SettingPage extends StatelessWidget {
             iconColor: MyColor.white,
             textColor: MyColor.white,
             leading: const Icon(Icons.rate_review),
-            title: Text(LocaleKeys.shareapp.tr),
+            title: Text(LocaleKeys.rateapp.tr),
           ),
         ],
       ),

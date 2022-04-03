@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
-import 'package:qr_scanner_app/screen/qr_pages/show_banner_ads_page.dart';
 import 'package:qr_scanner_app/service/controllers/qrcontrollers/qr_generate_controller.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
 import 'package:screenshot/screenshot.dart';
@@ -174,10 +173,6 @@ class GenerateQRPage extends StatelessWidget {
                         ),
                       )
                     : const SizedBox.shrink(),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 1 / 10,
-                ),
-                const ShowBannerAdsPage(),
               ],
             ),
           );

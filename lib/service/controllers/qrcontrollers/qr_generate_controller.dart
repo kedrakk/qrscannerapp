@@ -102,4 +102,10 @@ class QRGenerator extends GetxController {
     }
     _box.put(_timeStamp, _historyResult);
   }
+
+  @override
+  void onClose() {
+    _textEditingController.dispose();
+    super.onClose();
+  }
 }

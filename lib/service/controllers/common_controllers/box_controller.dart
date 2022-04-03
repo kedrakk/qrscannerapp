@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
+import '../../../model/history_result.dart';
+
 class BoxController extends GetxController {
   late Box<dynamic> _scanBox;
   late Box<dynamic> _generateBox;
@@ -15,6 +17,7 @@ class BoxController extends GetxController {
   }
 
   _openBoxes() async {
+    Hive.registerAdapter(HistoryResultAdapter());
     _scanBox = await Hive.openBox("scanbox");
     _generateBox = await Hive.openBox("generatebox");
   }

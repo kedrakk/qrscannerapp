@@ -23,7 +23,6 @@ class BannerAdsController extends GetxController {
         onAdFailedToLoad: (ad, err) {
           debugPrint('Failed to load a banner ad: ${err.message}');
           ad.dispose();
-          update();
         },
       ),
     );
@@ -31,24 +30,15 @@ class BannerAdsController extends GetxController {
     update();
   }
 
-  refreshBannerAds() {
-    if (_bannerAd != null) {
-      _bannerAd?.dispose();
-    }
-    _getBannerAd();
-  }
-
   @override
   void onInit() {
-    refreshBannerAds();
+    _getBannerAd();
     super.onInit();
   }
 
   @override
   void onClose() {
-    if (_bannerAd != null) {
-      _bannerAd?.dispose();
-    }
+    _bannerAd?.dispose();
     super.onClose();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
+import 'package:qr_scanner_app/service/controllers/common_controllers/setting_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:get/get.dart';
 import '../widgets/bottomsheets.dart';
@@ -36,12 +37,14 @@ class SettingPage extends StatelessWidget {
             textColor: MyColor.white,
             leading: const Icon(Icons.share),
             title: Text(LocaleKeys.shareapp.tr),
+            onTap: () => Get.find<SettingController>().shareApp(),
           ),
           ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
             leading: const Icon(Icons.rate_review),
             title: Text(LocaleKeys.rateapp.tr),
+            onTap: () => Get.find<SettingController>().launchAndRate(),
           ),
         ],
       ),

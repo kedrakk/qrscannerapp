@@ -7,7 +7,7 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    _timer = Timer(const Duration(milliseconds: 3000), () {
+    _timer = Timer(const Duration(milliseconds: 5000), () {
       Get.offAll(() => const HomePage());
     });
     super.onInit();

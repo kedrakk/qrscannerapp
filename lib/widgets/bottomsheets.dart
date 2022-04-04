@@ -29,7 +29,7 @@ void showThemeBottomSheet(BuildContext context) {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Text(
-              "Please Select Your Theme",
+              LocaleKeys.pleaseselectyourtheme.tr,
               style: MyTheme.textStyle.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 17,
@@ -98,7 +98,7 @@ void showLanguageBottomSheet(BuildContext context) {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Text(
-              "Please Select Your Language",
+              LocaleKeys.pleaseelectyourlanguage.tr,
               style: MyTheme.textStyle.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 17,

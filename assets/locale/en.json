@@ -19,5 +19,16 @@
     "emptyscanresult":"Empty Scan History",
     "emptygenerateresult":"Empty Generate History",
     "close":"CLOSE",
-    "autoscan":"Auto Scan On Page Start"
+    "generateqrimage":"Generate QR Image",
+    "chooseaframe":"Choose a frame to generate qr",
+    "urldesc":"Website URL Address",
+    "textdesc":"Paragraph Or Short Texts",
+    "phonedesc":"Phone Number Information",
+    "smsdesc":"SMS Message To Phone",
+    "emaildesc":"Email Address Information",
+    "contactdesc":"Contact Information",
+    "generate":"Generate",
+    "clickheretogenerateqr":"Click Here To Generate",
+    "pleaseelectyourlanguage":"Please select your language",
+    "pleaseselectyourtheme":"Please select your theme"
 }

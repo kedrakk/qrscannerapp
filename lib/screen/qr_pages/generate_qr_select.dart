@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/model/generate_type.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr_sms.dart';
@@ -13,32 +14,32 @@ class GenerateQRSelectPage extends StatelessWidget {
     GenerateType(
       leadingIcon: const Icon(Icons.link),
       title: "URL",
-      subtitle: "Website URL Adress",
+      subtitle: LocaleKeys.urldesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.format_size),
       title: "TEXT",
-      subtitle: "Paragraph Or Short Texts",
+      subtitle: LocaleKeys.textdesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.phone),
       title: "PHONE",
-      subtitle: "Phone Number Information",
+      subtitle: LocaleKeys.phonedesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.perm_phone_msg),
       title: "SMS",
-      subtitle: "SMS Message To Phone",
+      subtitle: LocaleKeys.smsdesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.alternate_email),
       title: "EMAIL",
-      subtitle: "Email Address Information",
+      subtitle: LocaleKeys.emaildesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.contacts),
       title: "CONTACT",
-      subtitle: "Contact Information",
+      subtitle: LocaleKeys.contactdesc.tr,
     ),
   ];
 
@@ -46,7 +47,7 @@ class GenerateQRSelectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Generate QR Image"),
+        title: Text(LocaleKeys.generateqr.tr),
       ),
       body: Container(
         margin: const EdgeInsets.all(10),
@@ -54,9 +55,9 @@ class GenerateQRSelectPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(bottom: 20.0),
-              child: Text("Choose a frame to generate qr"),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: Text(LocaleKeys.chooseaframe.tr),
             ),
             GridView.count(
               shrinkWrap: true,

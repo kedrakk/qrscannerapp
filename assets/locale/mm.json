@@ -19,5 +19,16 @@
     "emptyscanresult":"စကန်ရလဒ်များမရှိသေးပါ",
     "emptygenerateresult":"ကျုအာထုတ်ခဲ့သည့်ရလဒ်များမရှိသေးပါ",
     "close":"ပိတ်ပါ",
-    "autoscan":"ပင်မပေ့ချ်တွင် အလိုအလျောက်စကင်န်ဖတ်မည်"
+    "generateqrimage":"ကျူအာ ပုံထုတ်ရန်",
+    "chooseaframe":"ကျူအာထုတ်မည့်ပုံစံကိုရွေးပါ",
+    "urldesc":"ဝဘ်ဆိုဒ် URL လိပ်စာ",
+    "textdesc":"စာပိုဒ် သို့မဟုတ် စာတိုတိုများ",
+    "phonedesc":"ဖုန်းနံပါတ်အချက်အလက်",
+    "smsdesc":"ဖုန်းသို့ SMS စာတိုပေးပို့ခြင်",
+    "emaildesc":"အီးမေးလ်လိပ်စာအချက်အလက်",
+    "contactdesc":"ဆက်သွယ်ရန်အချက်အလက်",
+    "generate":"ထုတ်ရန်",
+    "clickheretogenerateqr":"QR ထုတ်ရန် ဤနေရာကိုနှိပ်ပါ",
+    "pleaseelectyourlanguage":"သင့်ဘာသာစကားကို ရွေးချယ်ပါ",
+    "pleaseselectyourtheme":"သင့်အပြင်အဆင်ကို ရွေးပါ"
 }

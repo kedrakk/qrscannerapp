@@ -19,5 +19,16 @@
     "emptyscanresult":"Historial de escaneo vacío",
     "emptygenerateresult":"Vacío Generar historial",
     "close":"CERRAR",
-    "autoscan":"Escaneo automático al inicio"
+    "generateqrimage":"Generar Imagen QR",
+    "chooseaframe":"Elige un marco para generar qr",
+    "urldesc":"Dirección URL del sitio web",
+    "textdesc":"Párrafo o Textos Cortos",
+    "phonedesc":"Información del número de teléfono",
+    "smsdesc":"Mensaje SMS al teléfono",
+    "emaildesc":"Información de la dirección de correo electrónico",
+    "contactdesc":"Información del contacto",
+    "generate":"Generar",
+    "clickheretogenerateqr":"Haga clic aquí para generar QR",
+    "pleaseelectyourlanguage":"Por favor seleccione su idioma",
+    "pleaseselectyourtheme":"Por favor seleccione su tema"
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 
 import '../../service/controllers/qrcontrollers/qr_generate_sms_controller.dart';
 import '../../utils/colors.dart';
 import '../dialogs.dart';
+import 'package:get/get.dart';
 
 class SMSFieldPage extends StatelessWidget {
   const SMSFieldPage({
@@ -97,9 +99,9 @@ class SMSFieldPage extends StatelessWidget {
                       controller.qrResult.isEmpty
                   ? showEmptyTextDialog()
                   : controller.generateQRSingle(generateType),
-              child: const Text(
-                "Click Here To Generate",
-                style: TextStyle(color: MyColor.white),
+              child: Text(
+                LocaleKeys.clickheretogenerateqr.tr,
+                style: const TextStyle(color: MyColor.white),
               ),
             ),
           ),

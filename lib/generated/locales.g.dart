@@ -32,7 +32,18 @@ class LocaleKeys {
   static const emptyscanresult = 'emptyscanresult';
   static const emptygenerateresult = 'emptygenerateresult';
   static const close = 'close';
-  static const autoscan = 'autoscan';
+  static const generateqrimage = 'generateqrimage';
+  static const chooseaframe = 'chooseaframe';
+  static const urldesc = 'urldesc';
+  static const textdesc = 'textdesc';
+  static const phonedesc = 'phonedesc';
+  static const smsdesc = 'smsdesc';
+  static const emaildesc = 'emaildesc';
+  static const contactdesc = 'contactdesc';
+  static const generate = 'generate';
+  static const clickheretogenerateqr = 'clickheretogenerateqr';
+  static const pleaseelectyourlanguage = 'pleaseelectyourlanguage';
+  static const pleaseselectyourtheme = 'pleaseselectyourtheme';
 }
 
 class Locales {
@@ -57,7 +68,18 @@ class Locales {
     'emptyscanresult': 'Empty Scan History',
     'emptygenerateresult': 'Empty Generate History',
     'close': 'CLOSE',
-    'autoscan': 'Auto Scan On Page Start',
+    'generateqrimage': 'Generate QR Image',
+    'chooseaframe': 'Choose a frame to generate qr',
+    'urldesc': 'Website URL Address',
+    'textdesc': 'Paragraph Or Short Texts',
+    'phonedesc': 'Phone Number Information',
+    'smsdesc': 'SMS Message To Phone',
+    'emaildesc': 'Email Address Information',
+    'contactdesc': 'Contact Information',
+    'generate': 'Generate',
+    'clickheretogenerateqr': 'Click Here To Generate',
+    'pleaseelectyourlanguage': 'Please select your language',
+    'pleaseselectyourtheme': 'Please select your theme',
   };
   static const es = {
     'setting': 'AJUSTE',
@@ -81,7 +103,18 @@ class Locales {
     'emptyscanresult': 'Historial de escaneo vacío',
     'emptygenerateresult': 'Vacío Generar historial',
     'close': 'CERRAR',
-    'autoscan': 'Escaneo automático al inicio',
+    'generateqrimage': 'Generar Imagen QR',
+    'chooseaframe': 'Elige un marco para generar qr',
+    'urldesc': 'Dirección URL del sitio web',
+    'textdesc': 'Párrafo o Textos Cortos',
+    'phonedesc': 'Información del número de teléfono',
+    'smsdesc': 'Mensaje SMS al teléfono',
+    'emaildesc': 'Información de la dirección de correo electrónico',
+    'contactdesc': 'Información del contacto',
+    'generate': 'Generar',
+    'clickheretogenerateqr': 'Haga clic aquí para generar QR',
+    'pleaseelectyourlanguage': 'Por favor seleccione su idioma',
+    'pleaseselectyourtheme': 'Por favor seleccione su tema',
   };
   static const mm = {
     'setting': 'တပ်ဆင်ခြင်းများ',
@@ -105,6 +138,17 @@ class Locales {
     'emptyscanresult': 'စကန်ရလဒ်များမရှိသေးပါ',
     'emptygenerateresult': 'ကျုအာထုတ်ခဲ့သည့်ရလဒ်များမရှိသေးပါ',
     'close': 'ပိတ်ပါ',
-    'autoscan': 'ပင်မပေ့ချ်တွင် အလိုအလျောက်စကင်န်ဖတ်မည်',
+    'generateqrimage': 'ကျူအာ ပုံထုတ်ရန်',
+    'chooseaframe': 'ကျူအာထုတ်မည့်ပုံစံကိုရွေးပါ',
+    'urldesc': 'ဝဘ်ဆိုဒ် URL လိပ်စာ',
+    'textdesc': 'စာပိုဒ် သို့မဟုတ် စာတိုတိုများ',
+    'phonedesc': 'ဖုန်းနံပါတ်အချက်အလက်',
+    'smsdesc': 'ဖုန်းသို့ SMS စာတိုပေးပို့ခြင်',
+    'emaildesc': 'အီးမေးလ်လိပ်စာအချက်အလက်',
+    'contactdesc': 'ဆက်သွယ်ရန်အချက်အလက်',
+    'generate': 'ထုတ်ရန်',
+    'clickheretogenerateqr': 'QR ထုတ်ရန် ဤနေရာကိုနှိပ်ပါ',
+    'pleaseelectyourlanguage': 'သင့်ဘာသာစကားကို ရွေးချယ်ပါ',
+    'pleaseselectyourtheme': 'သင့်အပြင်အဆင်ကို ရွေးပါ',
   };
 }

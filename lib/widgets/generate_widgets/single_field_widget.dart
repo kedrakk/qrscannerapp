@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scanner_app/generated/locales.g.dart';
 
 import '../../service/controllers/qrcontrollers/qr_generate_controller.dart';
 import '../../utils/colors.dart';
 import '../dialogs.dart';
 import 'package:qr_scanner_app/utils/extensions.dart';
+import 'package:get/get.dart';
 
 class SingleFieldPage extends StatelessWidget {
   const SingleFieldPage({
@@ -61,9 +63,9 @@ class SingleFieldPage extends StatelessWidget {
                     controller.qrResult.isEmpty
                 ? showEmptyTextDialog()
                 : controller.generateQRSingle(type),
-            child: const Text(
-              "Generate",
-              style: TextStyle(color: MyColor.white),
+            child: Text(
+              LocaleKeys.generate.tr,
+              style: const TextStyle(color: MyColor.white),
             ),
           ),
         ],

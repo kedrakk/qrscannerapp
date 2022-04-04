@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   onPressed: () => controller.changePage(1),
                   icon: Icon(
-                    Icons.center_focus_strong,
+                    Icons.qr_code_scanner,
                     color: controller.pageIndex == 1
                         ? MyColor.black
                         : MyColor.grey,

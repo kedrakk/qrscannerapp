@@ -64,7 +64,7 @@ class QRScannerWithMobileScannerPage extends StatelessWidget {
               }
             },
             child: Icon(
-              Icons.center_focus_strong,
+              Icons.qr_code_scanner,
               color: controller.qrCode.isNotEmpty
                   ? Get.theme.scaffoldBackgroundColor
                   : Colors.transparent,

@@ -21,14 +21,14 @@ class SettingPage extends StatelessWidget {
           ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
-            leading: const Icon(Icons.language),
+            leading: const Icon(Icons.translate),
             title: Text(LocaleKeys.changelanugage.tr),
             onTap: () => showLanguageBottomSheet(context),
           ),
           ListTile(
             iconColor: MyColor.white,
             textColor: MyColor.white,
-            leading: const Icon(Icons.theater_comedy),
+            leading: const Icon(Icons.palette),
             title: Text(LocaleKeys.changetheme.tr),
             onTap: () => showThemeBottomSheet(context),
           ),

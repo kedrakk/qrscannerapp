@@ -95,6 +95,7 @@ class GenerateQRSelectPage extends StatelessWidget {
                         height: double.infinity,
                         child: e.leadingIcon,
                       ),
+                      iconColor: Get.theme.scaffoldBackgroundColor,
                       title: Text(
                         e.title,
                         style: const TextStyle(
@@ -103,7 +104,8 @@ class GenerateQRSelectPage extends StatelessWidget {
                       ),
                       subtitle: Text(
                         e.subtitle,
-                        style: const TextStyle(fontSize: 12),
+                        style:
+                            const TextStyle(fontSize: 12, color: MyColor.grey),
                       ),
                     ),
                   )

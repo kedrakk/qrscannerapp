@@ -47,6 +47,7 @@ class QrScanResultPage extends StatelessWidget {
                       leading: ScanResultIcon(
                         leadingIcon: scanResultList[index].leadingIcon,
                       ),
+                      iconColor: Get.theme.scaffoldBackgroundColor,
                       title: Text(
                         scanResultList[index].resultName,
                         maxLines: 2,

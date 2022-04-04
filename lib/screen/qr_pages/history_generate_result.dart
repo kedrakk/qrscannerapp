@@ -44,6 +44,7 @@ class QRGenerateResultPage extends StatelessWidget {
                     leading: GenerateResultIcon(
                       leadingIcon: generateResultList[index].leadingIcon,
                     ),
+                    iconColor: Get.theme.scaffoldBackgroundColor,
                     title: Text(
                       generateResultList[index].resultName,
                       maxLines: 2,

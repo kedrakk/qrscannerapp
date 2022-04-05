@@ -19,12 +19,12 @@ class HomePage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 1 / 10,
+                height: MediaQuery.of(context).size.height * .08,
                 child: const ShowBannerAdsPage(),
               ),
               Container(
                 height: MediaQuery.of(context).size.height * .07,
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
                   color: MyColor.white,

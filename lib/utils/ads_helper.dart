@@ -32,14 +32,4 @@ class AdHelper {
       throw UnsupportedError("Unsupported platform");
     }
   }
-
-  static String get nativeAdUnitId {
-    if (Platform.isAndroid) {
-      return nativeAndroidID;
-    } else if (Platform.isIOS) {
-      return nativeIOSID;
-    } else {
-      throw UnsupportedError("Unsupported platform");
-    }
-  }
 }

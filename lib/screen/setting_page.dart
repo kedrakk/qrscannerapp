@@ -47,10 +47,6 @@ class SettingPage extends StatelessWidget {
           ),
         ],
       ),
-      // bottomNavigationBar: SizedBox(
-      //   height: MediaQuery.of(context).size.height * 1 / 10,
-      //   child: const ShowBannerAdsPage(),
-      // ),
     );
   }
 }

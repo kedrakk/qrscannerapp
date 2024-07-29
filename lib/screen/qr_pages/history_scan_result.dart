@@ -18,22 +18,12 @@ class QrScanResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return GetBuilder<RewardedAdsController>(
-    //     init: RewardedAdsController(),
-    //     builder: ((controller) {
     return Padding(
       padding: const EdgeInsets.all(7),
       child: scanResultList.isNotEmpty
           ? ListView.builder(
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  // if (controller.isRewardedAdReady &&
-                  //     controller.rewardedAd != null) {
-                  //   controller.rewardedAd?.show(
-                  //       onUserEarnedReward: (_, item) {
-                  //     debugPrint(item.type);
-                  //   });
-                  // }
                   showResultDetailBottomSheet(
                     context,
                     type,
@@ -70,6 +60,5 @@ class QrScanResultPage extends StatelessWidget {
               child: Text(LocaleKeys.emptyscanresult.tr),
             ),
     );
-    //}));
   }
 }

@@ -16,10 +16,6 @@ class HomePage extends StatelessWidget {
           bottomNavigationBar: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // SizedBox(
-              //   height: MediaQuery.of(context).size.height * .08,
-              //   child: const ShowBannerAdsPage(),
-              // ),
               Container(
                 height: MediaQuery.of(context).size.height * .07,
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),

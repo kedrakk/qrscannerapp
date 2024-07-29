@@ -6,7 +6,6 @@ class RootBinding implements Bindings {
   @override
   void dependencies() {
     Get.put<BoxController>(BoxController());
-    // Get.put<AdsController>(AdsController());
     Get.put<SettingController>(SettingController());
   }
 }

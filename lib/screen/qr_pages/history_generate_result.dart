@@ -18,19 +18,12 @@ class QRGenerateResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return GetBuilder<InterstitialAdsController>(
-    //   init: InterstitialAdsController(),
-    //   builder: ((controller) {
     return Padding(
       padding: const EdgeInsets.all(7),
       child: generateResultList.isNotEmpty
           ? ListView.builder(
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  // if (controller.isInterstitialAdReady &&
-                  //     controller.interstitialAds != null) {
-                  //   controller.interstitialAds?.show();
-                  // }
                   showResultDetailBottomSheet(
                     context,
                     type,
@@ -67,7 +60,5 @@ class QRGenerateResultPage extends StatelessWidget {
               child: Text(LocaleKeys.emptygenerateresult.tr),
             ),
     );
-    //   }),
-    // );
   }
 }

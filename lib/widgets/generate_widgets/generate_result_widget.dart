@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_scanner_app/widgets/generate_widgets/qrimage_view_widget.dart';
 import 'package:screenshot/screenshot.dart';
 import '../../generated/locales.g.dart';
 import '../../utils/colors.dart';
@@ -28,19 +28,8 @@ class GenerateResultWidget extends StatelessWidget {
       ),
       child: Screenshot(
         controller: screenshotController,
-        child: QrImageView(
-          backgroundColor: Get.theme.scaffoldBackgroundColor,
-          foregroundColor: MyColor.white,
-          data: resultToShow,
-          version: QrVersions.auto,
-          errorStateBuilder: (cxt, err) {
-            return Center(
-              child: Text(
-                LocaleKeys.somethingwentwrong.tr,
-                textAlign: TextAlign.center,
-              ),
-            );
-          },
+        child: QrImageViewWidget(
+          resultToShow: resultToShow,
         ),
       ),
     );

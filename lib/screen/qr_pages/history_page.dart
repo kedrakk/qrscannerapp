@@ -25,6 +25,7 @@ class QRHistoryPage extends StatelessWidget {
             title: TabBar(
               labelColor: MyColor.black,
               indicatorColor: Get.theme.scaffoldBackgroundColor,
+              dividerColor: MyColor.white,
               tabs: [
                 Tab(
                   text: LocaleKeys.qrscanresult.tr,

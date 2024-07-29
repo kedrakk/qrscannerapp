@@ -18,9 +18,10 @@ class BarcodeScanWithMobileScannerController extends GetxController {
     _qrcode = res;
     _codeType = type;
     HistoryResult historyResult = HistoryResult(
-        leadingIcon: _codeType,
-        resultName: _qrcode,
-        timestamp: DateTime.now().millisecondsSinceEpoch.toString());
+      leadingIcon: _codeType,
+      resultName: _qrcode,
+      timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
+    );
     _storeData(historyResult);
     update();
   }

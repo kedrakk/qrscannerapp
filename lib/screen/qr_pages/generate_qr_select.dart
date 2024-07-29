@@ -8,7 +8,7 @@ import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
 
 class GenerateQRSelectPage extends StatelessWidget {
-  GenerateQRSelectPage({Key? key}) : super(key: key);
+  GenerateQRSelectPage({super.key});
 
   final List<GenerateType> allGenerateTypes = [
     GenerateType(

@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 
 class SMSFieldPage extends StatelessWidget {
   const SMSFieldPage({
-    Key? key,
+    super.key,
     required this.controller,
     required this.generateType,
-  }) : super(key: key);
+  });
   final QRSMSGenerator controller;
   final String generateType;
 

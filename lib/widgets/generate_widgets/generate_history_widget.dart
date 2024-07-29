@@ -4,9 +4,9 @@ import 'qrimage_view_widget.dart';
 
 class GenerateHistoryResultWidget extends StatelessWidget {
   const GenerateHistoryResultWidget({
-    Key? key,
+    super.key,
     required this.resultToShow,
-  }) : super(key: key);
+  });
   final String resultToShow;
 
   @override

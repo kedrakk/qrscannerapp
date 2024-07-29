@@ -9,10 +9,10 @@ import '../../widgets/bottomsheets.dart';
 
 class QRGenerateResultPage extends StatelessWidget {
   const QRGenerateResultPage({
-    Key? key,
+    super.key,
     required this.type,
     required this.generateResultList,
-  }) : super(key: key);
+  });
   final String type;
   final List<HistoryResult> generateResultList;
 

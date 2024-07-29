@@ -9,10 +9,10 @@ import 'package:get/get.dart';
 
 class QrScanResultPage extends StatelessWidget {
   const QrScanResultPage({
-    Key? key,
+    super.key,
     required this.type,
     required this.scanResultList,
-  }) : super(key: key);
+  });
   final String type;
   final List<HistoryResult> scanResultList;
 

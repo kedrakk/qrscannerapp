@@ -5,7 +5,7 @@ import 'package:qr_scanner_app/service/controllers/common_controllers/splash_con
 import 'package:qr_scanner_app/utils/const.dart';
 
 class SplashScreenPage extends StatefulWidget {
-  const SplashScreenPage({Key? key}) : super(key: key);
+  const SplashScreenPage({super.key});
 
   @override
   State<SplashScreenPage> createState() => _SplashScreenPageState();

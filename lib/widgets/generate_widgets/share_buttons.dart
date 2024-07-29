@@ -6,10 +6,10 @@ import '../../utils/colors.dart';
 
 class SharedButtonsWidget extends StatelessWidget {
   const SharedButtonsWidget({
-    Key? key,
+    super.key,
     required this.onPressedShare,
     required this.onPressedSave,
-  }) : super(key: key);
+  });
   final void Function()? onPressedShare;
   final void Function()? onPressedSave;
 

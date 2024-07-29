@@ -7,9 +7,9 @@ import '../../generated/locales.g.dart';
 
 class QrImageViewWidget extends StatelessWidget {
   const QrImageViewWidget({
-    Key? key,
+    super.key,
     required this.resultToShow,
-  }) : super(key: key);
+  });
   final String resultToShow;
 
   @override

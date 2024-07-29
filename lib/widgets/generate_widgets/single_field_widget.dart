@@ -9,10 +9,10 @@ import 'package:get/get.dart';
 
 class SingleFieldPage extends StatelessWidget {
   const SingleFieldPage({
-    Key? key,
+    super.key,
     required this.controller,
     required this.type,
-  }) : super(key: key);
+  });
   final QRGenerator controller;
   final String type;
 

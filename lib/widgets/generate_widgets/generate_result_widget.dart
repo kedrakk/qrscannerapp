@@ -7,10 +7,10 @@ import '../../utils/colors.dart';
 
 class GenerateResultWidget extends StatelessWidget {
   const GenerateResultWidget({
-    Key? key,
+    super.key,
     required this.screenshotController,
     required this.resultToShow,
-  }) : super(key: key);
+  });
   final ScreenshotController screenshotController;
   final String resultToShow;
 
@@ -37,7 +37,7 @@ class GenerateResultWidget extends StatelessWidget {
 }
 
 class EmptyWidget extends StatelessWidget {
-  const EmptyWidget({Key? key}) : super(key: key);
+  const EmptyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

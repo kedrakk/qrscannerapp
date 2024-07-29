@@ -7,9 +7,9 @@ import '../../widgets/generate_widgets/share_buttons.dart';
 
 class GenerateQRPage extends StatelessWidget {
   const GenerateQRPage({
-    Key? key,
+    super.key,
     required this.generateType,
-  }) : super(key: key);
+  });
   final String generateType;
 
   @override

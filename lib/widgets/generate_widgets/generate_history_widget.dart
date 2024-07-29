@@ -23,7 +23,7 @@ class GenerateHistoryResultWidget extends StatelessWidget {
       decoration: const BoxDecoration(
         color: MyColor.white,
       ),
-      child: QrImage(
+      child: QrImageView(
         backgroundColor: Get.theme.scaffoldBackgroundColor,
         foregroundColor: MyColor.white,
         data: resultToShow,

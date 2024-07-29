@@ -17,11 +17,11 @@ class BarcodeScanWithMobileScannerController extends GetxController {
   scanQR(String res, String type) {
     _qrcode = res;
     _codeType = type;
-    HistoryResult _historyResult = HistoryResult(
+    HistoryResult historyResult = HistoryResult(
         leadingIcon: _codeType,
         resultName: _qrcode,
         timestamp: DateTime.now().millisecondsSinceEpoch.toString());
-    _storeData(_historyResult);
+    _storeData(historyResult);
     update();
   }
 
@@ -31,27 +31,27 @@ class BarcodeScanWithMobileScannerController extends GetxController {
   }
 
   pickQRImage() async {
-    final XFile? _pickedImage =
+    final XFile? pickedImage =
         await _picker.pickImage(source: ImageSource.gallery);
-    if (_pickedImage != null) {
-      scanFromImage(_pickedImage.path);
+    if (pickedImage != null) {
+      scanFromImage(pickedImage.path);
     }
   }
 
   scanFromImage(String path) async {
-    String? _scanRes = await Scan.parse(path);
-    if (_scanRes != null) {
-      scanQR(_scanRes, "QR TYPE");
+    String? scanRes = await Scan.parse(path);
+    if (scanRes != null) {
+      scanQR(scanRes, "QR TYPE");
     } else {
       showInvalidQRDialog();
     }
   }
 
-  _storeData(HistoryResult _historyResult) {
-    var _box = Hive.box('scanbox');
-    if (_box.length > 9) {
-      _box.deleteAt(0);
+  _storeData(HistoryResult historyResult) {
+    var box = Hive.box('scanbox');
+    if (box.length > 9) {
+      box.deleteAt(0);
     }
-    _box.put(_historyResult.timestamp, _historyResult);
+    box.put(historyResult.timestamp, historyResult);
   }
 }

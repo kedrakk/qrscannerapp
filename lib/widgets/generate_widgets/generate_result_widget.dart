@@ -28,7 +28,7 @@ class GenerateResultWidget extends StatelessWidget {
       ),
       child: Screenshot(
         controller: screenshotController,
-        child: QrImage(
+        child: QrImageView(
           backgroundColor: Get.theme.scaffoldBackgroundColor,
           foregroundColor: MyColor.white,
           data: resultToShow,

@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:qr_scanner_app/service/controllers/common_controllers/bottom_bar_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 
-import 'qr_pages/show_banner_ads_page.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -18,10 +16,10 @@ class HomePage extends StatelessWidget {
           bottomNavigationBar: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .08,
-                child: const ShowBannerAdsPage(),
-              ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * .08,
+              //   child: const ShowBannerAdsPage(),
+              // ),
               Container(
                 height: MediaQuery.of(context).size.height * .07,
                 margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),

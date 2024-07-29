@@ -22,7 +22,7 @@ class SharedButtonsWidget extends StatelessWidget {
         children: [
           ElevatedButton.icon(
             style: ButtonStyle(
-              shape: MaterialStateProperty.all(
+              shape: WidgetStateProperty.all(
                 const RoundedRectangleBorder(
                   side: BorderSide(color: MyColor.white),
                 ),
@@ -34,13 +34,13 @@ class SharedButtonsWidget extends StatelessWidget {
           ),
           ElevatedButton.icon(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
+              backgroundColor: WidgetStateProperty.all(
                 MyColor.white,
               ),
-              foregroundColor: MaterialStateProperty.all(
+              foregroundColor: WidgetStateProperty.all(
                 Get.theme.scaffoldBackgroundColor,
               ),
-              shape: MaterialStateProperty.all(
+              shape: WidgetStateProperty.all(
                 const RoundedRectangleBorder(
                   side: BorderSide(color: MyColor.white),
                 ),

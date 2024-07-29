@@ -6,15 +6,15 @@ class LanguageService {
   final _getStorage = GetStorage();
 
   Locale getCurrentLanguage() {
-    var _langKey = _getStorage.read('language');
-    if (_langKey != null) {
-      return Locale(_langKey);
+    var langKey = _getStorage.read('language');
+    if (langKey != null) {
+      return Locale(langKey);
     }
     return const Locale('en');
   }
 
-  void setLocale(String key, Locale _newLocale) {
+  void setLocale(String key, Locale newLocale) {
     _getStorage.write('language', key);
-    Get.updateLocale(_newLocale);
+    Get.updateLocale(newLocale);
   }
 }

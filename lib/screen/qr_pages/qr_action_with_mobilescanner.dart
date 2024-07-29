@@ -28,12 +28,15 @@ class QRScannerWithMobileScannerPage extends StatelessWidget {
           ),
           body: controller.qrCode.isEmpty
               ? MobileScanner(
-                  allowDuplicates: false,
-                  onDetect: (barcode, args) {
-                    final String? code = barcode.rawValue;
-                    final String type = barcode.type.toString();
-                    controller.scanQR(code!, type);
-                  })
+                  //TODO check alternative for allowDuplicates
+                  // allowDuplicates: false,
+                  onDetect: (barcode) {
+                    //TODO check alternative for the following params and function
+                    // final String? code = barcode.rawValue;
+                    // final String type = barcode.type.toString();
+                    // controller.scanQR(code!, type);
+                  },
+                )
               : Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Column(
@@ -63,16 +66,16 @@ class QRScannerWithMobileScannerPage extends StatelessWidget {
                 controller.refreshNew();
               }
             },
+            backgroundColor: controller.qrCode.isNotEmpty
+                ? MyColor.white
+                : Colors.transparent,
+            tooltip: "Scan New",
             child: Icon(
               Icons.qr_code_scanner,
               color: controller.qrCode.isNotEmpty
                   ? Get.theme.scaffoldBackgroundColor
                   : Colors.transparent,
             ),
-            backgroundColor: controller.qrCode.isNotEmpty
-                ? MyColor.white
-                : Colors.transparent,
-            tooltip: "Scan New",
           ),
         );
       }),

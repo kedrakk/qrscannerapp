@@ -17,13 +17,13 @@ class HistoryController extends GetxController {
 
   void getScanResult() {
     _scanResultList.clear();
-    var _box = Hive.box('scanbox');
-    for (var item in _box.keys) {
-      var _result = _box.get(item) as HistoryResult;
+    var box = Hive.box('scanbox');
+    for (var item in box.keys) {
+      var result = box.get(item) as HistoryResult;
       _scanResultList.add(HistoryResult(
-        timestamp: _result.timestamp,
-        resultName: _result.resultName,
-        leadingIcon: _result.leadingIcon,
+        timestamp: result.timestamp,
+        resultName: result.resultName,
+        leadingIcon: result.leadingIcon,
       ));
     }
     _scanResultList = _scanResultList.reversed.toList();
@@ -32,13 +32,13 @@ class HistoryController extends GetxController {
 
   void getGenerateResult() {
     _generateResult.clear();
-    var _box = Hive.box('generatebox');
-    for (var item in _box.keys) {
-      var _result = _box.get(item) as HistoryResult;
+    var box = Hive.box('generatebox');
+    for (var item in box.keys) {
+      var result = box.get(item) as HistoryResult;
       _generateResult.add(HistoryResult(
-        timestamp: _result.timestamp,
-        resultName: _result.resultName,
-        leadingIcon: _result.leadingIcon,
+        timestamp: result.timestamp,
+        resultName: result.resultName,
+        leadingIcon: result.leadingIcon,
       ));
     }
     _generateResult = _generateResult.reversed.toList();

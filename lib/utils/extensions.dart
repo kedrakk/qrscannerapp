@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 extension ToBarcodeType on String {
   String barcodeType() {
     return startsWith("BarcodeType")
-        ? substring(12).toUpperCase() + " TYPE"
+        ? "${substring(12).toUpperCase()} TYPE"
         : this;
   }
 }
@@ -37,13 +37,13 @@ extension GenerateResulType on String {
   String toGenerateFormat(String type) {
     switch (type) {
       case "URL":
-        return "https://" + this;
+        return "https://$this";
       case "EMAIL":
-        return this + "@gmail.com";
+        return "$this@gmail.com";
       case "PHONE":
         return startsWith("+959")
             ? this
-            : ("+959" + (startsWith('09') ? substring(2) : this));
+            : ("+959${startsWith('09') ? substring(2) : this}");
       default:
         return this;
     }

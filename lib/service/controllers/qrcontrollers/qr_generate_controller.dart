@@ -37,12 +37,12 @@ class QRGenerator extends GetxController {
   void generateQRSingle(String type) {
     debugPrint(type);
     _qrResult = _textEditingController.text.toGenerateFormat(type);
-    HistoryResult _historyResult = HistoryResult(
+    HistoryResult historyResult = HistoryResult(
       leadingIcon: "BarcodeType.${type.toLowerCase()}",
       resultName: _qrResult,
       timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
     );
-    _storeData(_historyResult);
+    _storeData(historyResult);
     update();
   }
 
@@ -70,20 +70,20 @@ class QRGenerator extends GetxController {
         delay: const Duration(milliseconds: 10));
     if (res != null) {
       final directory = await getApplicationDocumentsDirectory();
-      final _imageName =
+      final imageName =
+          // ignore: prefer_interpolation_to_compose_strings
           DateTime.now().millisecondsSinceEpoch.toString() + "_image";
-      final _imagePath =
-          await File('${directory.path}/$_imageName.png').create();
-      await _imagePath.writeAsBytes(res);
-      return _imagePath;
+      final imagePath = await File('${directory.path}/$imageName.png').create();
+      await imagePath.writeAsBytes(res);
+      return imagePath;
     }
     return null;
   }
 
   void saveImage() async {
-    var _captureFile = await _captureImage();
-    if (_captureFile != null) {
-      var result = await ImageGallerySaver.saveFile(_captureFile.path);
+    var captureFile = await _captureImage();
+    if (captureFile != null) {
+      var result = await ImageGallerySaver.saveFile(captureFile.path);
       if (result != null) {
         showGetSnackBar(LocaleKeys.success.tr, LocaleKeys.imagesavesuccess.tr);
       }
@@ -91,18 +91,18 @@ class QRGenerator extends GetxController {
   }
 
   void shareImage() async {
-    var _captureFile = await _captureImage();
-    if (_captureFile != null) {
-      await Share.shareFiles([_captureFile.path]);
+    var captureFile = await _captureImage();
+    if (captureFile != null) {
+      await Share.shareXFiles([XFile(captureFile.path)]);
     }
   }
 
-  _storeData(HistoryResult _historyResult) {
-    var _box = Hive.box('generatebox');
-    if (_box.length > 9) {
-      _box.deleteAt(0);
+  _storeData(HistoryResult historyResult) {
+    var box = Hive.box('generatebox');
+    if (box.length > 9) {
+      box.deleteAt(0);
     }
-    _box.put(_historyResult.timestamp, _historyResult);
+    box.put(historyResult.timestamp, historyResult);
   }
 
   @override

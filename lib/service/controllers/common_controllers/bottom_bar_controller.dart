@@ -14,8 +14,8 @@ class BottomBarController extends GetxController {
   int _pageIndex = 1;
   int get pageIndex => _pageIndex;
 
-  void changePage(int _newIndex) {
-    _pageIndex = _newIndex;
+  void changePage(int newIndex) {
+    _pageIndex = newIndex;
     update();
   }
 }

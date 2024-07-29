@@ -9,18 +9,20 @@ import '../../../utils/const.dart';
 class SettingController extends GetxController {
   shareApp() {
     Share.share(
-        ("https://play.google.com/store/apps/details?id=" + appPackageName),
+        ("https://play.google.com/store/apps/details?id=$appPackageName"),
         subject: "QR Scanner App");
   }
 
   launchAndRate() async {
     try {
-      launch("market://details?id=" + appPackageName);
+      launchUrl(Uri.parse("market://details?id=$appPackageName"));
     } on PlatformException catch (e) {
       debugPrint(e.toString());
-      launch("https://play.google.com/store/apps/details?id=" + appPackageName);
+      launchUrl(Uri.parse(
+          "https://play.google.com/store/apps/details?id=$appPackageName"));
     } finally {
-      launch("https://play.google.com/store/apps/details?id=" + appPackageName);
+      launchUrl(Uri.parse(
+          "https://play.google.com/store/apps/details?id=$appPackageName"));
     }
   }
 }

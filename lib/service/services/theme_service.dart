@@ -8,22 +8,22 @@ class ThemeService {
   final _getStorage = GetStorage();
 
   ThemeData getTheme() {
-    var _themeKey = _getStorage.read('theme');
-    ThemeData _currentThemeData = MyTheme.darkPurpleTheme;
-    if (_themeKey != null) {
-      _currentThemeData = MyTheme.allThemes
-          .firstWhere((element) => element.keys.first == _themeKey)
+    var themeKey = _getStorage.read('theme');
+    ThemeData currentThemeData = MyTheme.darkPurpleTheme;
+    if (themeKey != null) {
+      currentThemeData = MyTheme.allThemes
+          .firstWhere((element) => element.keys.first == themeKey)
           .values
           .first;
     }
-    return _currentThemeData;
+    return currentThemeData;
   }
 
-  void setTheme(ThemeData _newThemeData, String key) {
+  void setTheme(ThemeData newThemeData, String key) {
     _getStorage.write('theme', key);
-    Get.changeTheme(_newThemeData);
+    Get.changeTheme(newThemeData);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: _newThemeData.scaffoldBackgroundColor,
+      statusBarColor: newThemeData.scaffoldBackgroundColor,
       statusBarBrightness: Brightness.dark,
     ));
   }

@@ -8,10 +8,10 @@ class MyTheme {
       IconThemeData(color: MyColor.black);
 
   static const TextTheme _textThemeData = TextTheme(
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       color: MyColor.white,
     ),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       color: MyColor.white,
     ),
   );

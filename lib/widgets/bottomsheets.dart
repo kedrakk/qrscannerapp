@@ -10,6 +10,8 @@ import 'package:qr_scanner_app/widgets/generate_widgets/generate_history_widget.
 import 'package:qr_scanner_app/widgets/history_leading_icons.dart';
 import 'package:intl/intl.dart';
 
+import '../screen/qr_pages/scanner_widgets.dart';
+
 void showThemeBottomSheet(BuildContext context) {
   showModalBottomSheet(
     backgroundColor: Colors.transparent,
@@ -186,6 +188,10 @@ void showResultDetailBottomSheet(BuildContext context, String type,
                             ),
                           ),
                         ),
+                      ),
+                      trailing: ClipboardWidget(
+                        textToCopy: title,
+                        iconColor: MyColor.black,
                       ),
                     )
                   : GenerateHistoryResultWidget(

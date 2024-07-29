@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:qr_scanner_app/screen/qr_pages/scanner_error_widget.dart';
+import 'package:qr_scanner_app/screen/qr_pages/scanner_widgets.dart';
 import 'package:qr_scanner_app/service/controllers/qrcontrollers/barcode_scan_with_mobile_scanner_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import '../../generated/locales.g.dart';
@@ -117,10 +117,17 @@ class _QRScannerWithMobileScannerPageState
                           ),
                         ),
                       ),
-                      SingleChildScrollView(
-                        child: Text(
-                          controller.qrCode,
-                        ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              controller.qrCode,
+                            ),
+                          ),
+                          ClipboardWidget(
+                            textToCopy: controller.qrCode,
+                          ),
+                        ],
                       ),
                     ],
                   ),

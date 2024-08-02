@@ -19,12 +19,8 @@ class QRScannerWithMobileScannerPage extends StatefulWidget {
 
 class _QRScannerWithMobileScannerPageState
     extends State<QRScannerWithMobileScannerPage> with WidgetsBindingObserver {
-  final MobileScannerController _mobileScannerController =
-      MobileScannerController(
-    autoStart: false,
-    torchEnabled: true,
-    useNewCameraSelector: true,
-  );
+  bool _torchEnabled = true;
+  late MobileScannerController _mobileScannerController;
   late BarcodeScanWithMobileScannerController
       barcodeScanWithMobileScannerController;
 
@@ -46,6 +42,11 @@ class _QRScannerWithMobileScannerPageState
   @override
   void initState() {
     super.initState();
+    _mobileScannerController = MobileScannerController(
+      autoStart: false,
+      torchEnabled: _torchEnabled,
+      useNewCameraSelector: true,
+    );
     barcodeScanWithMobileScannerController =
         Get.put(BarcodeScanWithMobileScannerController());
     WidgetsBinding.instance.addObserver(this);
@@ -91,6 +92,16 @@ class _QRScannerWithMobileScannerPageState
                 onPressed: () => controller.pickQRImage(),
                 icon: const Icon(
                   Icons.photo,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    _torchEnabled = !_torchEnabled;
+                  });
+                },
+                icon: Icon(
+                  _torchEnabled ? Icons.flash_on : Icons.flash_off,
                 ),
               ),
             ],

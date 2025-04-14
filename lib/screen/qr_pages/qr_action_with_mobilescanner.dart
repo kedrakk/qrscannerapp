@@ -41,19 +41,18 @@ class _QRScannerWithMobileScannerPageState
 
   @override
   void initState() {
-    super.initState();
     _mobileScannerController = MobileScannerController(
       autoStart: false,
       torchEnabled: _torchEnabled,
       useNewCameraSelector: true,
     );
+    unawaited(_mobileScannerController.start());
+    super.initState();
     barcodeScanWithMobileScannerController =
         Get.put(BarcodeScanWithMobileScannerController());
     WidgetsBinding.instance.addObserver(this);
 
     _subscription = _mobileScannerController.barcodes.listen(_handleBarcode);
-
-    unawaited(_mobileScannerController.start());
   }
 
   @override
@@ -89,7 +88,9 @@ class _QRScannerWithMobileScannerPageState
             title: Text(LocaleKeys.myqr.tr),
             actions: [
               IconButton(
-                onPressed: () => controller.pickQRImage(),
+                onPressed: () => controller.pickQRImage(
+                  _mobileScannerController,
+                ),
                 icon: const Icon(
                   Icons.photo,
                 ),

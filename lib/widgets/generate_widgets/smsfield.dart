@@ -24,6 +24,9 @@ class SMSFieldPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextFormField(
+            onTapOutside: (event) {
+              FocusScope.of(context).unfocus();
+            },
             controller: controller.phoneContoller,
             keyboardType: TextInputType.number,
             showCursor: true,
@@ -63,6 +66,9 @@ class SMSFieldPage extends StatelessWidget {
             ),
           ),
           TextFormField(
+            onTapOutside: (event) {
+              FocusScope.of(context).unfocus();
+            },
             focusNode: controller.smsFoucs,
             controller: controller.smsController,
             showCursor: true,

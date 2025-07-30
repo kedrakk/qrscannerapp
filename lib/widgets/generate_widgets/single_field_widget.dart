@@ -9,10 +9,10 @@ import 'package:get/get.dart';
 
 class SingleFieldPage extends StatelessWidget {
   const SingleFieldPage({
-    Key? key,
+    super.key,
     required this.controller,
     required this.type,
-  }) : super(key: key);
+  });
   final QRGenerator controller;
   final String type;
 
@@ -31,6 +31,9 @@ class SingleFieldPage extends StatelessWidget {
               keyboardType: type.toInputType(),
               cursorColor: MyColor.white,
               style: const TextStyle(color: MyColor.white),
+              onTapOutside: (event) {
+                FocusScope.of(context).unfocus();
+              },
               decoration: InputDecoration(
                 label: Text("Enter $type"),
                 labelStyle: const TextStyle(color: MyColor.white, fontSize: 13),

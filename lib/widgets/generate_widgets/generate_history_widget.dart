@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-
-import '../../generated/locales.g.dart';
 import '../../utils/colors.dart';
+import 'qrimage_view_widget.dart';
 
 class GenerateHistoryResultWidget extends StatelessWidget {
   const GenerateHistoryResultWidget({
-    Key? key,
+    super.key,
     required this.resultToShow,
-  }) : super(key: key);
+  });
   final String resultToShow;
 
   @override
@@ -23,19 +20,8 @@ class GenerateHistoryResultWidget extends StatelessWidget {
       decoration: const BoxDecoration(
         color: MyColor.white,
       ),
-      child: QrImageView(
-        backgroundColor: Get.theme.scaffoldBackgroundColor,
-        foregroundColor: MyColor.white,
-        data: resultToShow,
-        version: QrVersions.auto,
-        errorStateBuilder: (cxt, err) {
-          return Center(
-            child: Text(
-              LocaleKeys.somethingwentwrong.tr,
-              textAlign: TextAlign.center,
-            ),
-          );
-        },
+      child: QrImageViewWidget(
+        resultToShow: resultToShow,
       ),
     );
   }

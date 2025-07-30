@@ -9,31 +9,21 @@ import 'package:get/get.dart';
 
 class QrScanResultPage extends StatelessWidget {
   const QrScanResultPage({
-    Key? key,
+    super.key,
     required this.type,
     required this.scanResultList,
-  }) : super(key: key);
+  });
   final String type;
   final List<HistoryResult> scanResultList;
 
   @override
   Widget build(BuildContext context) {
-    // return GetBuilder<RewardedAdsController>(
-    //     init: RewardedAdsController(),
-    //     builder: ((controller) {
     return Padding(
       padding: const EdgeInsets.all(7),
       child: scanResultList.isNotEmpty
           ? ListView.builder(
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
-                  // if (controller.isRewardedAdReady &&
-                  //     controller.rewardedAd != null) {
-                  //   controller.rewardedAd?.show(
-                  //       onUserEarnedReward: (_, item) {
-                  //     debugPrint(item.type);
-                  //   });
-                  // }
                   showResultDetailBottomSheet(
                     context,
                     type,
@@ -70,6 +60,5 @@ class QrScanResultPage extends StatelessWidget {
               child: Text(LocaleKeys.emptyscanresult.tr),
             ),
     );
-    //}));
   }
 }

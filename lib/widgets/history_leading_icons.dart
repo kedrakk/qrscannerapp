@@ -4,9 +4,9 @@ import '../utils/colors.dart';
 
 class ScanResultIcon extends StatelessWidget {
   const ScanResultIcon({
-    Key? key,
+    super.key,
     required this.leadingIcon,
-  }) : super(key: key);
+  });
   final String leadingIcon;
 
   @override
@@ -21,9 +21,9 @@ class ScanResultIcon extends StatelessWidget {
 
 class GenerateResultIcon extends StatelessWidget {
   const GenerateResultIcon({
-    Key? key,
+    super.key,
     required this.leadingIcon,
-  }) : super(key: key);
+  });
   final String leadingIcon;
 
   @override

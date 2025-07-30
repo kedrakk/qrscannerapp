@@ -8,7 +8,7 @@ import 'package:qr_scanner_app/service/controllers/qrcontrollers/history_control
 import 'package:qr_scanner_app/utils/colors.dart';
 
 class QRHistoryPage extends StatelessWidget {
-  const QRHistoryPage({Key? key}) : super(key: key);
+  const QRHistoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +25,7 @@ class QRHistoryPage extends StatelessWidget {
             title: TabBar(
               labelColor: MyColor.black,
               indicatorColor: Get.theme.scaffoldBackgroundColor,
+              dividerColor: MyColor.white,
               tabs: [
                 Tab(
                   text: LocaleKeys.qrscanresult.tr,

@@ -8,7 +8,7 @@ import 'package:qr_scanner_app/service/services/language_service.dart';
 import 'package:qr_scanner_app/service/services/theme_service.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

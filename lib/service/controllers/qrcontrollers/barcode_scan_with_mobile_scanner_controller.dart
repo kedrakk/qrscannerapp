@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_scanner_app/model/history_result.dart';
-import 'package:scan/scan.dart';
+// import 'package:scan/scan.dart';
 import '../../../widgets/dialogs.dart';
 
 class BarcodeScanWithMobileScannerController extends GetxController {
@@ -18,9 +19,10 @@ class BarcodeScanWithMobileScannerController extends GetxController {
     _qrcode = res;
     _codeType = type;
     HistoryResult historyResult = HistoryResult(
-        leadingIcon: _codeType,
-        resultName: _qrcode,
-        timestamp: DateTime.now().millisecondsSinceEpoch.toString());
+      leadingIcon: _codeType,
+      resultName: _qrcode,
+      timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
+    );
     _storeData(historyResult);
     update();
   }
@@ -30,18 +32,23 @@ class BarcodeScanWithMobileScannerController extends GetxController {
     update();
   }
 
-  pickQRImage() async {
-    final XFile? pickedImage =
-        await _picker.pickImage(source: ImageSource.gallery);
+  pickQRImage(MobileScannerController mobileScannerController) async {
+    final pickedImage = await _picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
-      scanFromImage(pickedImage.path);
+      scanFromImage(pickedImage.path, mobileScannerController);
     }
   }
 
-  scanFromImage(String path) async {
-    String? scanRes = await Scan.parse(path);
-    if (scanRes != null) {
-      scanQR(scanRes, "QR TYPE");
+  scanFromImage(
+    String path,
+    MobileScannerController mobileScannerController,
+  ) async {
+    final BarcodeCapture? barcode =
+        await mobileScannerController.analyzeImage(path);
+    if (barcode != null &&
+        barcode.barcodes.isNotEmpty &&
+        barcode.barcodes.first.rawValue != null) {
+      scanQR(barcode.barcodes.first.rawValue!, "QR TYPE");
     } else {
       showInvalidQRDialog();
     }

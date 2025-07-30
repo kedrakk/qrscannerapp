@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 
 class SMSFieldPage extends StatelessWidget {
   const SMSFieldPage({
-    Key? key,
+    super.key,
     required this.controller,
     required this.generateType,
-  }) : super(key: key);
+  });
   final QRSMSGenerator controller;
   final String generateType;
 
@@ -24,6 +24,9 @@ class SMSFieldPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextFormField(
+            onTapOutside: (event) {
+              FocusScope.of(context).unfocus();
+            },
             controller: controller.phoneContoller,
             keyboardType: TextInputType.number,
             showCursor: true,
@@ -63,6 +66,9 @@ class SMSFieldPage extends StatelessWidget {
             ),
           ),
           TextFormField(
+            onTapOutside: (event) {
+              FocusScope.of(context).unfocus();
+            },
             focusNode: controller.smsFoucs,
             controller: controller.smsController,
             showCursor: true,

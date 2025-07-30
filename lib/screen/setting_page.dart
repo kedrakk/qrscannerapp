@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../widgets/bottomsheets.dart';
 
 class SettingPage extends StatelessWidget {
-  const SettingPage({Key? key}) : super(key: key);
+  const SettingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +47,6 @@ class SettingPage extends StatelessWidget {
           ),
         ],
       ),
-      // bottomNavigationBar: SizedBox(
-      //   height: MediaQuery.of(context).size.height * 1 / 10,
-      //   child: const ShowBannerAdsPage(),
-      // ),
     );
   }
 }

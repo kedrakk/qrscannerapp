@@ -7,8 +7,8 @@ import '../../widgets/generate_widgets/generate_result_widget.dart';
 
 class GenerateQRSMSPage extends StatelessWidget {
   const GenerateQRSMSPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

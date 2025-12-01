@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scanner_app/utils/const.dart';
 
 extension ToBarcodeType on String {
   String barcodeType() {
@@ -40,24 +41,20 @@ extension GenerateResulType on String {
         return "https://$this";
       case "EMAIL":
         return "$this@gmail.com";
-      case "PHONE":
-        return startsWith("+959")
-            ? this
-            : ("+959${startsWith('09') ? substring(2) : this}");
       default:
         return this;
     }
   }
 }
 
-extension KeyBoardType on String {
+extension KeyBoardType on QRTYPE {
   TextInputType toInputType() {
     switch (this) {
-      case "URL":
+      case QRTYPE.url:
         return TextInputType.url;
-      case "EMAIL":
+      case QRTYPE.email:
         return TextInputType.emailAddress;
-      case "PHONE":
+      case QRTYPE.phone:
         return TextInputType.phone;
       default:
         return TextInputType.multiline;

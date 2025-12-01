@@ -54,6 +54,7 @@ dependencies:
   mobile_scanner: ^6.0.11
   url_launcher: ^6.0.20
   flutter_image_gallery_saver: ^1.1.1
+  country_code_picker: ^3.4.1
 
 dev_dependencies:
   flutter_test:

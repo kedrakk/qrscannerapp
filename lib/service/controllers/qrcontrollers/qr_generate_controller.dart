@@ -7,6 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
+import 'package:qr_scanner_app/utils/const.dart';
 import 'package:qr_scanner_app/widgets/snackbars.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
@@ -26,6 +27,9 @@ class QRGenerator extends GetxController {
   final ScreenshotController _screenshotController = ScreenshotController();
   ScreenshotController get screenshotController => _screenshotController;
 
+  String _countryCode = '+95';
+  String get countryCode => _countryCode;
+
   @override
   void onInit() {
     if (_textEditingController.text.isNotEmpty) {
@@ -34,11 +38,22 @@ class QRGenerator extends GetxController {
     super.onInit();
   }
 
-  void generateQRSingle(String type) {
-    debugPrint(type);
-    _qrResult = _textEditingController.text.toGenerateFormat(type);
+  updateCountry(String newCountryCode) {
+    if (newCountryCode.isNotEmpty) {
+      _countryCode = newCountryCode;
+      update();
+    }
+  }
+
+  void generateQRSingle(QRTYPE type) {
+    debugPrint(type.name);
+    _qrResult =
+        _textEditingController.text.toGenerateFormat(type.name.toUpperCase());
+    if (type == QRTYPE.phone) {
+      _qrResult = "tel:$_countryCode$qrResult";
+    }
     HistoryResult historyResult = HistoryResult(
-      leadingIcon: "BarcodeType.${type.toLowerCase()}",
+      leadingIcon: "BarcodeType.${type.name}",
       resultName: _qrResult,
       timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
     );

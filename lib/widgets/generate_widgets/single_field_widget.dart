@@ -1,5 +1,7 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_app/generated/locales.g.dart';
+import 'package:qr_scanner_app/utils/const.dart';
 
 import '../../service/controllers/qrcontrollers/qr_generate_controller.dart';
 import '../../utils/colors.dart';
@@ -14,7 +16,7 @@ class SingleFieldPage extends StatelessWidget {
     required this.type,
   });
   final QRGenerator controller;
-  final String type;
+  final QRTYPE type;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class SingleFieldPage extends StatelessWidget {
                 FocusScope.of(context).unfocus();
               },
               decoration: InputDecoration(
-                label: Text("Enter $type"),
+                label: Text("Enter ${type.name}"),
                 labelStyle: const TextStyle(color: MyColor.white, fontSize: 13),
                 enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -55,6 +57,18 @@ class SingleFieldPage extends StatelessWidget {
                   ),
                 ),
                 suffixIconColor: controller.suffixIconColor,
+                prefix: CountryCodePicker(
+                  padding: const EdgeInsets.all(0),
+                  dialogTextStyle: const TextStyle(color: MyColor.black),
+                  searchStyle: const TextStyle(color: MyColor.black),
+                  onChanged: (newCode) {
+                    controller.updateCountry(newCode.dialCode ?? "");
+                  },
+                  initialSelection: 'MM',
+                  showCountryOnly: false,
+                  showOnlyCountryWhenClosed: false,
+                  alignLeft: false,
+                ),
               ),
               maxLines: 4,
               minLines: 2,

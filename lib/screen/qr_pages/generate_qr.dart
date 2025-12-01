@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_scanner_app/service/controllers/qrcontrollers/qr_generate_controller.dart';
+import 'package:qr_scanner_app/utils/const.dart';
 import 'package:qr_scanner_app/widgets/generate_widgets/generate_result_widget.dart';
 import 'package:qr_scanner_app/widgets/generate_widgets/single_field_widget.dart';
 import '../../widgets/generate_widgets/share_buttons.dart';
@@ -10,14 +11,14 @@ class GenerateQRPage extends StatelessWidget {
     super.key,
     required this.generateType,
   });
-  final String generateType;
+  final QRTYPE generateType;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Generate $generateType",
+          "Generate ${generateType.name.toUpperCase()}",
           style: const TextStyle(
             fontSize: 15,
           ),

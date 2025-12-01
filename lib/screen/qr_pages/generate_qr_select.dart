@@ -5,6 +5,7 @@ import 'package:qr_scanner_app/model/generate_type.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr.dart';
 import 'package:qr_scanner_app/screen/qr_pages/generate_qr_sms.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
+import 'package:qr_scanner_app/utils/const.dart';
 import 'package:qr_scanner_app/widgets/dialogs.dart';
 
 class GenerateQRSelectPage extends StatelessWidget {
@@ -13,32 +14,32 @@ class GenerateQRSelectPage extends StatelessWidget {
   final List<GenerateType> allGenerateTypes = [
     GenerateType(
       leadingIcon: const Icon(Icons.link),
-      title: "URL",
+      title: QRTYPE.url,
       subtitle: LocaleKeys.urldesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.format_size),
-      title: "TEXT",
+      title: QRTYPE.text,
       subtitle: LocaleKeys.textdesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.phone),
-      title: "PHONE",
+      title: QRTYPE.phone,
       subtitle: LocaleKeys.phonedesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.perm_phone_msg),
-      title: "SMS",
+      title: QRTYPE.sms,
       subtitle: LocaleKeys.smsdesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.alternate_email),
-      title: "EMAIL",
+      title: QRTYPE.email,
       subtitle: LocaleKeys.emaildesc.tr,
     ),
     GenerateType(
       leadingIcon: const Icon(Icons.contacts),
-      title: "CONTACT",
+      title: QRTYPE.contact,
       subtitle: LocaleKeys.contactdesc.tr,
     ),
   ];
@@ -70,11 +71,11 @@ class GenerateQRSelectPage extends StatelessWidget {
                   .map(
                     (e) => ListTile(
                       onTap: () {
-                        if (e.title.toLowerCase() == "sms") {
+                        if (e.title == QRTYPE.sms) {
                           Get.to(
                             () => const GenerateQRSMSPage(),
                           );
-                        } else if (e.title.toLowerCase() == "contact") {
+                        } else if (e.title == QRTYPE.contact) {
                           showComingSoonDialog();
                         } else {
                           Get.to(
@@ -97,7 +98,7 @@ class GenerateQRSelectPage extends StatelessWidget {
                       ),
                       iconColor: Get.theme.scaffoldBackgroundColor,
                       title: Text(
-                        e.title,
+                        e.title.name.toUpperCase(),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

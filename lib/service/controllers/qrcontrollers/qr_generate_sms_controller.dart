@@ -103,7 +103,7 @@ class QRSMSGenerator extends GetxController {
   void saveImage() async {
     var captureFile = await _captureImage();
     if (captureFile != null) {
-      await FlutterImageGallerySaver.saveFile(captureFile.path);
+      await ImageGallerySaver().saveFile(captureFile.path);
       showGetSnackBar(LocaleKeys.success.tr, LocaleKeys.imagesavesuccess.tr);
     }
   }

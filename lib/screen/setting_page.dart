@@ -3,6 +3,7 @@ import 'package:qr_scanner_app/generated/locales.g.dart';
 import 'package:qr_scanner_app/service/controllers/common_controllers/setting_controller.dart';
 import 'package:qr_scanner_app/utils/colors.dart';
 import 'package:get/get.dart';
+import 'package:qr_scanner_app/utils/const.dart';
 import '../widgets/bottomsheets.dart';
 
 class SettingPage extends StatelessWidget {
@@ -46,6 +47,10 @@ class SettingPage extends StatelessWidget {
             onTap: () => Get.find<SettingController>().launchAndRate(),
           ),
         ],
+      ),
+      bottomNavigationBar: const Text(
+        appversionCode,
+        textAlign: TextAlign.center,
       ),
     );
   }

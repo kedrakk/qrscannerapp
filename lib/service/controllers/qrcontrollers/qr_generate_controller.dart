@@ -30,6 +30,9 @@ class QRGenerator extends GetxController {
   String _countryCode = '+95';
   String get countryCode => _countryCode;
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> get formKey => _formKey;
+
   @override
   void onInit() {
     if (_textEditingController.text.isNotEmpty) {
@@ -46,19 +49,21 @@ class QRGenerator extends GetxController {
   }
 
   void generateQRSingle(QRTYPE type) {
-    debugPrint(type.name);
-    _qrResult =
-        _textEditingController.text.toGenerateFormat(type.name.toUpperCase());
-    if (type == QRTYPE.phone) {
-      _qrResult = "tel:$_countryCode$qrResult";
+    if (_formKey.currentState!.validate()) {
+      debugPrint(type.name);
+      _qrResult =
+          _textEditingController.text.toGenerateFormat(type.name.toUpperCase());
+      if (type == QRTYPE.phone) {
+        _qrResult = "tel:$_countryCode$qrResult";
+      }
+      HistoryResult historyResult = HistoryResult(
+        leadingIcon: "BarcodeType.${type.name}",
+        resultName: _qrResult,
+        timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
+      );
+      _storeData(historyResult);
+      update();
     }
-    HistoryResult historyResult = HistoryResult(
-      leadingIcon: "BarcodeType.${type.name}",
-      resultName: _qrResult,
-      timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
-    );
-    _storeData(historyResult);
-    update();
   }
 
   void textOnchange(String txt) {

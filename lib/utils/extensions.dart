@@ -40,7 +40,7 @@ extension GenerateResulType on String {
       case "URL":
         return "https://$this";
       case "EMAIL":
-        return "$this@gmail.com";
+        return "mailto:$this";
       default:
         return this;
     }

@@ -21,12 +21,6 @@ final allLanguages = <MyLanguage>[
     localeKey: 'en',
   ),
   MyLanguage(
-    languageName: "Española",
-    languageIcon: const Icon(Icons.language),
-    locale: const Locale('es', 'ES'),
-    localeKey: 'es',
-  ),
-  MyLanguage(
     languageName: "မြန်မာစာ",
     languageIcon: const Icon(Icons.language),
     locale: const Locale('mm', 'MM'),

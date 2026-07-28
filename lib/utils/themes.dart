@@ -36,7 +36,7 @@ class MyTheme {
 
   static final ThemeData lightBlueTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.lightBlue,
+      backgroundColor: MyColor.lightBlue,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -52,7 +52,7 @@ class MyTheme {
 
   static final ThemeData darkBlueTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.darkBlue,
+      backgroundColor: MyColor.darkBlue,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -68,7 +68,7 @@ class MyTheme {
 
   static final ThemeData royalBlueTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.royalBlue,
+      backgroundColor: MyColor.royalBlue,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -84,7 +84,7 @@ class MyTheme {
 
   static final ThemeData lightPurpleTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.lightPurple,
+      backgroundColor: MyColor.lightPurple,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -100,7 +100,7 @@ class MyTheme {
 
   static final ThemeData darkPurpleTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.darkPurple,
+      backgroundColor: MyColor.darkPurple,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -116,7 +116,7 @@ class MyTheme {
 
   static final ThemeData orangeTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.orange,
+      backgroundColor: MyColor.orange,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -132,7 +132,7 @@ class MyTheme {
 
   static final ThemeData green3Theme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.green3,
+      backgroundColor: MyColor.green3,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -148,7 +148,7 @@ class MyTheme {
 
   static final ThemeData green2Theme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.green2,
+      backgroundColor: MyColor.green2,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -164,7 +164,7 @@ class MyTheme {
 
   static final ThemeData green1Theme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.green1,
+      backgroundColor: MyColor.green1,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
@@ -180,7 +180,7 @@ class MyTheme {
 
   static final ThemeData blackTheme = ThemeData(
     appBarTheme: const AppBarTheme(
-      color: MyColor.black,
+      backgroundColor: MyColor.black,
       iconTheme: IconThemeData(color: MyColor.white),
       elevation: 0,
       titleTextStyle: TextStyle(color: MyColor.white),
